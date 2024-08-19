@@ -11,8 +11,10 @@
   <File Type="VDS-TIMING-PB" Name="vga_test_ver_3_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../project/vga_motior_project/vga_project.v">
+    <File Path="$PSRCDIR/sources_1/imports/vga_motior_project/vga_project.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../project/vga_motior_project/vga_project.v"/>
+        <Attr Name="ImportTime" Val="1724038128"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

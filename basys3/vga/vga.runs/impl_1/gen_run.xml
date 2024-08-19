@@ -81,8 +81,10 @@
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../project/vga_motior_project/vga_project.v">
+    <File Path="$PSRCDIR/sources_1/imports/vga_motior_project/vga_project.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../project/vga_motior_project/vga_project.v"/>
+        <Attr Name="ImportTime" Val="1724038128"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

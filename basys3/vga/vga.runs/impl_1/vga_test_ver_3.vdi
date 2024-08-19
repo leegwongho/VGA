@@ -431,3 +431,214 @@ INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 
 
 Phase 1 Build RT Design
 Checksum: PlaceDB: f16b137 ConstDB: 0 ShapeSum: 433944cd RouteDB: 0
+Post Restoration Checksum: NetGraph: 27e84835 NumContArr: 55ea6c47 Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: 7dd2b47c
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 2547.582 ; gain = 72.762
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 7dd2b47c
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 2553.656 ; gain = 78.836
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 7dd2b47c
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 2553.656 ; gain = 78.836
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 1af76e35e
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 2558.113 ; gain = 83.293
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.945  | TNS=0.000  | WHS=-0.144 | THS=-1.423 |
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 73
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 73
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 150006276
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 150006276
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+Phase 3 Initial Routing | Checksum: 1ab8d08ab
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.908  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 16afccba9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.908  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: fae1b2c9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+Phase 4 Rip-up And Reroute | Checksum: fae1b2c9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: fae1b2c9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: fae1b2c9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+Phase 5 Delay and Skew Optimization | Checksum: fae1b2c9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 162613ec9
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.001  | TNS=0.000  | WHS=0.138  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 102610d44
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+Phase 6 Post Hold Fix | Checksum: 102610d44
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0336443 %
+  Global Horizontal Routing Utilization  = 0.0359188 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: fa848c65
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2558.844 ; gain = 84.023
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: fa848c65
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2559.484 ; gain = 84.664
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 1867659cc
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2559.484 ; gain = 84.664
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=3.001  | TNS=0.000  | WHS=0.138  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 1867659cc
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2559.484 ; gain = 84.664
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2559.484 ; gain = 84.664
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+82 Infos, 4 Warnings, 4 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:28 . Memory (MB): peak = 2559.484 ; gain = 94.688
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 2571.336 ; gain = 11.852
+INFO: [Common 17-1381] The checkpoint 'C:/Users/sunda/Desktop/haman/verilog/vga/vga.runs/impl_1/vga_test_ver_3_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file vga_test_ver_3_drc_routed.rpt -pb vga_test_ver_3_drc_routed.pb -rpx vga_test_ver_3_drc_routed.rpx
+Command: report_drc -file vga_test_ver_3_drc_routed.rpt -pb vga_test_ver_3_drc_routed.pb -rpx vga_test_ver_3_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/sunda/Desktop/haman/verilog/vga/vga.runs/impl_1/vga_test_ver_3_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file vga_test_ver_3_methodology_drc_routed.rpt -pb vga_test_ver_3_methodology_drc_routed.pb -rpx vga_test_ver_3_methodology_drc_routed.rpx
+Command: report_methodology -file vga_test_ver_3_methodology_drc_routed.rpt -pb vga_test_ver_3_methodology_drc_routed.pb -rpx vga_test_ver_3_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/sunda/Desktop/haman/verilog/vga/vga.runs/impl_1/vga_test_ver_3_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [runtcl-4] Executing : report_power -file vga_test_ver_3_power_routed.rpt -pb vga_test_ver_3_power_summary_routed.pb -rpx vga_test_ver_3_power_routed.rpx
+Command: report_power -file vga_test_ver_3_power_routed.rpt -pb vga_test_ver_3_power_summary_routed.pb -rpx vga_test_ver_3_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+94 Infos, 4 Warnings, 4 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [runtcl-4] Executing : report_route_status -file vga_test_ver_3_route_status.rpt -pb vga_test_ver_3_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file vga_test_ver_3_timing_summary_routed.rpt -pb vga_test_ver_3_timing_summary_routed.pb -rpx vga_test_ver_3_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [runtcl-4] Executing : report_incremental_reuse -file vga_test_ver_3_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file vga_test_ver_3_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file vga_test_ver_3_bus_skew_routed.rpt -pb vga_test_ver_3_bus_skew_routed.pb -rpx vga_test_ver_3_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+Command: write_bitstream -force vga_test_ver_3.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Bitstream compression saved 15625248 bits.
+Writing bitstream ./vga_test_ver_3.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+12 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 3032.254 ; gain = 432.828
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 19 12:31:26 2024...
