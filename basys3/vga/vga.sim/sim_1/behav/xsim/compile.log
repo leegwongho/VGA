@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sunda/Desktop/haman/project/vga_motior_project/vga_project.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vga_test_red
+INFO: [VRFC 10-311] analyzing module vga_test_ver_1
+INFO: [VRFC 10-311] analyzing module vga_test_ver_2
+INFO: [VRFC 10-311] analyzing module clock_div_4
+INFO: [VRFC 10-311] analyzing module edge_detector_n
+INFO: [VRFC 10-311] analyzing module vga_test_ver_3
+INFO: [VRFC 10-311] analyzing module h_sync
+INFO: [VRFC 10-311] analyzing module v_sync
+INFO: [VRFC 10-311] analyzing module tb_vga
