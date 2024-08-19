@@ -193,13 +193,9 @@ module BRAM_test_generator (
         else begin
             if (init_flag) begin
                 write_enable = 1;
-                counter_red = counter_red + 1;
-                if (!counter_red) begin
-                    counter_green = counter_green + 1;
-                    if (!counter_green) begin
-                        counter_blue = counter_blue + 1;
-                    end
-                end
+                counter_red = pixel_counter [8:4];
+                counter_green = pixel_counter [12:9];
+                counter_blue = pixel_counter [16:13];
             end
 
             // counter

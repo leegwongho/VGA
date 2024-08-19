@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Mon Aug 19 16:32:37 2024
+| Date         : Mon Aug 19 16:47:38 2024
 | Host         : DESKTOP-TPO10A8 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file TOP_VGA_BRAM_test_timing_summary_routed.rpt -pb TOP_VGA_BRAM_test_timing_summary_routed.pb -rpx TOP_VGA_BRAM_test_timing_summary_routed.rpx -warn_on_violation
 | Design       : TOP_VGA_BRAM_test
@@ -128,7 +128,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.909        0.000                      0                  790        0.164        0.000                      0                  790        4.500        0.000                       0                   187  
+      0.938        0.000                      0                  790        0.184        0.000                      0                  790        4.500        0.000                       0                   187  
 
 
 All user specified timing constraints are met.
@@ -151,7 +151,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         0.909        0.000                      0                  790        0.164        0.000                      0                  790        4.500        0.000                       0                   187  
+sys_clk_pin         0.938        0.000                      0                  790        0.184        0.000                      0                  790        4.500        0.000                       0                   187  
 
 
 ------------------------------------------------------------------------------------------------
@@ -182,28 +182,28 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.909ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.164ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.938ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.184ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.909ns  (required time - arrival time)
+Slack (MET) :             0.938ns  (required time - arrival time)
   Source:                 nolabel_line67/pixel_counter_reg[16]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ENARDEN
+  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ENARDEN
                             (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.544ns  (logic 0.648ns (18.284%)  route 2.896ns (81.716%))
+  Data Path Delay:        3.278ns  (logic 0.577ns (17.603%)  route 2.701ns (82.397%))
   Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        -0.068ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.827ns = ( 14.827 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.075ns = ( 10.075 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Path Skew:        -0.077ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.820ns = ( 14.820 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns = ( 10.084 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.188ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -219,70 +219,14 @@ Slack (MET) :             0.909ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.554    10.075    nolabel_line67/CLK
-    SLICE_X10Y61         FDCE                                         r  nolabel_line67/pixel_counter_reg[16]/C  (IS_INVERTED)
+                         net (fo=186, routed)         1.563    10.084    nolabel_line67/CLK
+    SLICE_X32Y40         FDCE                                         r  nolabel_line67/pixel_counter_reg[16]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X10Y61         FDCE (Prop_fdce_C_Q)         0.524    10.599 f  nolabel_line67/pixel_counter_reg[16]/Q
-                         net (fo=36, routed)          2.048    12.647    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/ENA
-    SLICE_X52Y41         LUT3 (Prop_lut3_I2_O)        0.124    12.771 f  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_8/O
-                         net (fo=1, routed)           0.848    13.619    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_5
-    RAMB36_X1Y7          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ENARDEN  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.486    14.827    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
-    RAMB36_X1Y7          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-                         clock pessimism              0.180    15.007    
-                         clock uncertainty           -0.035    14.971    
-    RAMB36_X1Y7          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
-                                                     -0.443    14.528    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
-  -------------------------------------------------------------------
-                         required time                         14.528    
-                         arrival time                         -13.619    
-  -------------------------------------------------------------------
-                         slack                                  0.909    
-
-Slack (MET) :             0.914ns  (required time - arrival time)
-  Source:                 nolabel_line67/pixel_counter_reg[12]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[12]
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.403ns  (logic 0.524ns (15.398%)  route 2.879ns (84.601%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.082ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.807ns = ( 14.807 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.076ns = ( 10.076 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.187ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.555    10.076    nolabel_line67/CLK
-    SLICE_X10Y60         FDCE                                         r  nolabel_line67/pixel_counter_reg[12]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X10Y60         FDCE (Prop_fdce_C_Q)         0.524    10.600 r  nolabel_line67/pixel_counter_reg[12]/Q
-                         net (fo=38, routed)          2.879    13.479    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/addra[12]
-    RAMB36_X1Y15         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[12]
+    SLICE_X32Y40         FDCE (Prop_fdce_C_Q)         0.459    10.543 f  nolabel_line67/pixel_counter_reg[16]/Q
+                         net (fo=37, routed)          1.944    12.487    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/ENA
+    SLICE_X57Y24         LUT3 (Prop_lut3_I2_O)        0.118    12.605 f  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_10/O
+                         net (fo=1, routed)           0.757    13.362    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_6
+    RAMB36_X2Y3          RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ENARDEN  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -292,201 +236,143 @@ Slack (MET) :             0.914ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.466    14.807    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
-    RAMB36_X1Y15         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-                         clock pessimism              0.187    14.994    
-                         clock uncertainty           -0.035    14.959    
-    RAMB36_X1Y15         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[12])
-                                                     -0.566    14.393    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
+                         net (fo=186, routed)         1.479    14.820    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
+    RAMB36_X2Y3          RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+                         clock pessimism              0.188    15.008    
+                         clock uncertainty           -0.035    14.972    
+    RAMB36_X2Y3          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.672    14.300    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
   -------------------------------------------------------------------
-                         required time                         14.393    
-                         arrival time                         -13.479    
+                         required time                         14.300    
+                         arrival time                         -13.362    
   -------------------------------------------------------------------
-                         slack                                  0.914    
+                         slack                                  0.938    
 
-Slack (MET) :             0.930ns  (required time - arrival time)
-  Source:                 nolabel_line67/pixel_counter_reg[14]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[14]
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.468ns  (logic 0.524ns (15.111%)  route 2.944ns (84.889%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.001ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.817ns = ( 14.817 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.076ns = ( 10.076 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.555    10.076    nolabel_line67/CLK
-    SLICE_X10Y60         FDCE                                         r  nolabel_line67/pixel_counter_reg[14]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X10Y60         FDCE (Prop_fdce_C_Q)         0.524    10.600 r  nolabel_line67/pixel_counter_reg[14]/Q
-                         net (fo=35, routed)          2.944    13.544    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[14]
-    RAMB36_X0Y18         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[14]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.476    14.817    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
-    RAMB36_X0Y18         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
-                         clock pessimism              0.258    15.075    
-                         clock uncertainty           -0.035    15.040    
-    RAMB36_X0Y18         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[14])
-                                                     -0.566    14.474    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
-  -------------------------------------------------------------------
-                         required time                         14.474    
-                         arrival time                         -13.544    
-  -------------------------------------------------------------------
-                         slack                                  0.930    
-
-Slack (MET) :             0.988ns  (required time - arrival time)
-  Source:                 nolabel_line67/pixel_counter_reg[16]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ENARDEN
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.239ns  (logic 0.643ns (19.854%)  route 2.596ns (80.146%))
-  Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        -0.064ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.831ns = ( 14.831 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.075ns = ( 10.075 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.180ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.554    10.075    nolabel_line67/CLK
-    SLICE_X10Y61         FDCE                                         r  nolabel_line67/pixel_counter_reg[16]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X10Y61         FDCE (Prop_fdce_C_Q)         0.524    10.599 f  nolabel_line67/pixel_counter_reg[16]/Q
-                         net (fo=36, routed)          2.048    12.647    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/ENA
-    SLICE_X52Y41         LUT3 (Prop_lut3_I2_O)        0.119    12.766 f  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_gate_2/O
-                         net (fo=1, routed)           0.548    13.314    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_ENARDEN_cooolgate_en_sig_2
-    RAMB36_X2Y8          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ENARDEN  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.490    14.831    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
-    RAMB36_X2Y8          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-                         clock pessimism              0.180    15.011    
-                         clock uncertainty           -0.035    14.975    
-    RAMB36_X2Y8          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
-                                                     -0.674    14.301    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
-  -------------------------------------------------------------------
-                         required time                         14.301    
-                         arrival time                         -13.314    
-  -------------------------------------------------------------------
-                         slack                                  0.988    
-
-Slack (MET) :             0.990ns  (required time - arrival time)
-  Source:                 nolabel_line67/pixel_counter_reg[8]/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[8]
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.343ns  (logic 0.524ns (15.672%)  route 2.819ns (84.328%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.831ns = ( 14.831 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.076ns = ( 10.076 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.180ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.555    10.076    nolabel_line67/CLK
-    SLICE_X10Y59         FDCE                                         r  nolabel_line67/pixel_counter_reg[8]/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X10Y59         FDCE (Prop_fdce_C_Q)         0.524    10.600 r  nolabel_line67/pixel_counter_reg[8]/Q
-                         net (fo=35, routed)          2.819    13.419    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[8]
-    RAMB36_X2Y8          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[8]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.490    14.831    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
-    RAMB36_X2Y8          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-                         clock pessimism              0.180    15.011    
-                         clock uncertainty           -0.035    14.975    
-    RAMB36_X2Y8          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[8])
-                                                     -0.566    14.409    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
-  -------------------------------------------------------------------
-                         required time                         14.409    
-                         arrival time                         -13.419    
-  -------------------------------------------------------------------
-                         slack                                  0.990    
-
-Slack (MET) :             0.993ns  (required time - arrival time)
+Slack (MET) :             0.948ns  (required time - arrival time)
   Source:                 nolabel_line67/pixel_counter_reg[4]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[4]
+  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[4]
                             (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.340ns  (logic 0.524ns (15.687%)  route 2.816ns (84.313%))
+  Data Path Delay:        3.374ns  (logic 0.459ns (13.605%)  route 2.915ns (86.395%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.832ns = ( 14.832 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.077ns = ( 10.077 - 5.000 ) 
+  Clock Path Skew:        -0.077ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.818ns = ( 14.818 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns = ( 10.082 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.561    10.082    nolabel_line67/CLK
+    SLICE_X32Y37         FDCE                                         r  nolabel_line67/pixel_counter_reg[4]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y37         FDCE (Prop_fdce_C_Q)         0.459    10.541 r  nolabel_line67/pixel_counter_reg[4]/Q
+                         net (fo=36, routed)          2.915    13.456    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/addra[4]
+    RAMB36_X1Y3          RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[4]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.477    14.818    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/clka
+    RAMB36_X1Y3          RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
+                         clock pessimism              0.188    15.006    
+                         clock uncertainty           -0.035    14.970    
+    RAMB36_X1Y3          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[4])
+                                                     -0.566    14.404    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+  -------------------------------------------------------------------
+                         required time                         14.404    
+                         arrival time                         -13.456    
+  -------------------------------------------------------------------
+                         slack                                  0.948    
+
+Slack (MET) :             0.996ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[8]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[8]
+                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        3.331ns  (logic 0.459ns (13.781%)  route 2.872ns (86.219%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.072ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.824ns = ( 14.824 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.083ns = ( 10.083 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.562    10.083    nolabel_line67/CLK
+    SLICE_X32Y38         FDCE                                         r  nolabel_line67/pixel_counter_reg[8]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y38         FDCE (Prop_fdce_C_Q)         0.459    10.542 r  nolabel_line67/pixel_counter_reg[8]/Q
+                         net (fo=35, routed)          2.872    13.414    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/addra[8]
+    RAMB36_X1Y2          RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[8]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.483    14.824    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/clka
+    RAMB36_X1Y2          RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+                         clock pessimism              0.188    15.012    
+                         clock uncertainty           -0.035    14.976    
+    RAMB36_X1Y2          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[8])
+                                                     -0.566    14.410    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
+  -------------------------------------------------------------------
+                         required time                         14.410    
+                         arrival time                         -13.414    
+  -------------------------------------------------------------------
+                         slack                                  0.996    
+
+Slack (MET) :             1.017ns  (required time - arrival time)
+  Source:                 nolabel_line67/write_enable_reg/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/WEA[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        3.325ns  (logic 0.459ns (13.806%)  route 2.866ns (86.194%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.091ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.813ns = ( 14.813 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns = ( 10.084 - 5.000 ) 
     Clock Pessimism Removal (CPR):    0.180ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -503,12 +389,12 @@ Slack (MET) :             0.993ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.556    10.077    nolabel_line67/CLK
-    SLICE_X10Y58         FDCE                                         r  nolabel_line67/pixel_counter_reg[4]/C  (IS_INVERTED)
+                         net (fo=186, routed)         1.563    10.084    nolabel_line67/CLK
+    SLICE_X31Y39         FDCE                                         r  nolabel_line67/write_enable_reg/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X10Y58         FDCE (Prop_fdce_C_Q)         0.524    10.601 r  nolabel_line67/pixel_counter_reg[4]/Q
-                         net (fo=35, routed)          2.816    13.417    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[4]
-    RAMB36_X2Y9          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[4]
+    SLICE_X31Y39         FDCE (Prop_fdce_C_Q)         0.459    10.543 r  nolabel_line67/write_enable_reg/Q
+                         net (fo=34, routed)          2.866    13.409    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/wea[0]
+    RAMB36_X1Y12         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/WEA[0]
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -518,32 +404,200 @@ Slack (MET) :             0.993ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.491    14.832    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
-    RAMB36_X2Y9          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
-                         clock pessimism              0.180    15.012    
-                         clock uncertainty           -0.035    14.976    
+                         net (fo=186, routed)         1.472    14.813    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/clka
+    RAMB36_X1Y12         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
+                         clock pessimism              0.180    14.993    
+                         clock uncertainty           -0.035    14.958    
+    RAMB36_X1Y12         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
+                                                     -0.532    14.426    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+  -------------------------------------------------------------------
+                         required time                         14.426    
+                         arrival time                         -13.409    
+  -------------------------------------------------------------------
+                         slack                                  1.017    
+
+Slack (MET) :             1.017ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[6]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[6]
+                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        3.319ns  (logic 0.459ns (13.830%)  route 2.860ns (86.170%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.063ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.832ns = ( 14.832 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns = ( 10.082 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.561    10.082    nolabel_line67/CLK
+    SLICE_X32Y37         FDCE                                         r  nolabel_line67/pixel_counter_reg[6]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y37         FDCE (Prop_fdce_C_Q)         0.459    10.541 r  nolabel_line67/pixel_counter_reg[6]/Q
+                         net (fo=36, routed)          2.860    13.401    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/addra[6]
+    RAMB36_X2Y9          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[6]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.491    14.832    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
+    RAMB36_X2Y9          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
+                         clock pessimism              0.188    15.020    
+                         clock uncertainty           -0.035    14.984    
+    RAMB36_X2Y9          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[6])
+                                                     -0.566    14.418    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+  -------------------------------------------------------------------
+                         required time                         14.418    
+                         arrival time                         -13.401    
+  -------------------------------------------------------------------
+                         slack                                  1.017    
+
+Slack (MET) :             1.037ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[3]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        3.266ns  (logic 0.459ns (14.052%)  route 2.807ns (85.948%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.095ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.806ns = ( 14.806 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.081ns = ( 10.081 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.560    10.081    nolabel_line67/CLK
+    SLICE_X32Y36         FDCE                                         r  nolabel_line67/pixel_counter_reg[3]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y36         FDCE (Prop_fdce_C_Q)         0.459    10.540 r  nolabel_line67/pixel_counter_reg[3]/Q
+                         net (fo=35, routed)          2.807    13.348    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/addra[3]
+    RAMB36_X0Y13         RAMB36E1                                     r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.465    14.806    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
+    RAMB36_X0Y13         RAMB36E1                                     r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
+                         clock pessimism              0.180    14.986    
+                         clock uncertainty           -0.035    14.951    
+    RAMB36_X0Y13         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[3])
+                                                     -0.566    14.385    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+  -------------------------------------------------------------------
+                         required time                         14.385    
+                         arrival time                         -13.348    
+  -------------------------------------------------------------------
+                         slack                                  1.037    
+
+Slack (MET) :             1.049ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[4]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[4]
+                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        3.287ns  (logic 0.459ns (13.962%)  route 2.828ns (86.038%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.063ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.832ns = ( 14.832 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns = ( 10.082 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     8.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.561    10.082    nolabel_line67/CLK
+    SLICE_X32Y37         FDCE                                         r  nolabel_line67/pixel_counter_reg[4]/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y37         FDCE (Prop_fdce_C_Q)         0.459    10.541 r  nolabel_line67/pixel_counter_reg[4]/Q
+                         net (fo=36, routed)          2.828    13.370    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/addra[4]
+    RAMB36_X2Y9          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[4]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         1.491    14.832    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
+    RAMB36_X2Y9          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
+                         clock pessimism              0.188    15.020    
+                         clock uncertainty           -0.035    14.984    
     RAMB36_X2Y9          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[4])
-                                                     -0.566    14.410    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+                                                     -0.566    14.418    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
   -------------------------------------------------------------------
-                         required time                         14.410    
-                         arrival time                         -13.417    
+                         required time                         14.418    
+                         arrival time                         -13.370    
   -------------------------------------------------------------------
-                         slack                                  0.993    
+                         slack                                  1.049    
 
-Slack (MET) :             0.999ns  (required time - arrival time)
-  Source:                 nolabel_line67/pixel_counter_reg[15]/C
+Slack (MET) :             1.059ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[3]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[15]
+  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[3]
                             (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.377ns  (logic 0.524ns (15.514%)  route 2.853ns (84.486%))
+  Data Path Delay:        3.266ns  (logic 0.459ns (14.055%)  route 2.807ns (85.945%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.073ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.816ns = ( 14.816 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.076ns = ( 10.076 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.187ns
+  Clock Path Skew:        -0.074ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.820ns = ( 14.820 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.081ns = ( 10.081 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.188ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -559,12 +613,12 @@ Slack (MET) :             0.999ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.555    10.076    nolabel_line67/CLK
-    SLICE_X10Y60         FDCE                                         r  nolabel_line67/pixel_counter_reg[15]/C  (IS_INVERTED)
+                         net (fo=186, routed)         1.560    10.081    nolabel_line67/CLK
+    SLICE_X32Y36         FDCE                                         r  nolabel_line67/pixel_counter_reg[3]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X10Y60         FDCE (Prop_fdce_C_Q)         0.524    10.600 r  nolabel_line67/pixel_counter_reg[15]/Q
-                         net (fo=47, routed)          2.853    13.453    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/addra[15]
-    RAMB36_X1Y11         RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[15]
+    SLICE_X32Y36         FDCE (Prop_fdce_C_Q)         0.459    10.540 r  nolabel_line67/pixel_counter_reg[3]/Q
+                         net (fo=35, routed)          2.807    13.347    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/addra[3]
+    RAMB36_X2Y5          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/ADDRARDADDR[3]
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -574,32 +628,32 @@ Slack (MET) :             0.999ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.475    14.816    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/clka
-    RAMB36_X1Y11         RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-                         clock pessimism              0.187    15.003    
-                         clock uncertainty           -0.035    14.968    
-    RAMB36_X1Y11         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[15])
-                                                     -0.515    14.453    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
+                         net (fo=186, routed)         1.479    14.820    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/clka
+    RAMB36_X2Y5          RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+                         clock pessimism              0.188    15.008    
+                         clock uncertainty           -0.035    14.972    
+    RAMB36_X2Y5          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[3])
+                                                     -0.566    14.406    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B
   -------------------------------------------------------------------
-                         required time                         14.453    
-                         arrival time                         -13.453    
+                         required time                         14.406    
+                         arrival time                         -13.347    
   -------------------------------------------------------------------
-                         slack                                  0.999    
+                         slack                                  1.059    
 
-Slack (MET) :             1.010ns  (required time - arrival time)
-  Source:                 nolabel_line67/pixel_counter_reg[5]/C
+Slack (MET) :             1.096ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[13]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[5]
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ENARDEN
+                            (rising edge-triggered cell RAMB18E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.387ns  (logic 0.524ns (15.470%)  route 2.863ns (84.530%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.002ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.817ns = ( 14.817 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.077ns = ( 10.077 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.258ns
+  Data Path Delay:        3.132ns  (logic 0.605ns (19.317%)  route 2.527ns (80.683%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        -0.089ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.815ns = ( 14.815 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns = ( 10.084 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.180ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -615,12 +669,14 @@ Slack (MET) :             1.010ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.556    10.077    nolabel_line67/CLK
-    SLICE_X10Y58         FDCE                                         r  nolabel_line67/pixel_counter_reg[5]/C  (IS_INVERTED)
+                         net (fo=186, routed)         1.563    10.084    nolabel_line67/CLK
+    SLICE_X32Y39         FDCE                                         r  nolabel_line67/pixel_counter_reg[13]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X10Y58         FDCE (Prop_fdce_C_Q)         0.524    10.601 r  nolabel_line67/pixel_counter_reg[5]/Q
-                         net (fo=35, routed)          2.863    13.464    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[5]
-    RAMB36_X0Y18         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[5]
+    SLICE_X32Y39         FDCE (Prop_fdce_C_Q)         0.459    10.543 f  nolabel_line67/pixel_counter_reg[13]/Q
+                         net (fo=36, routed)          1.757    12.301    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/addra[13]
+    SLICE_X8Y52          LUT4 (Prop_lut4_I3_O)        0.146    12.447 r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_i_1/O
+                         net (fo=2, routed)           0.770    13.216    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_1
+    RAMB18_X0Y22         RAMB18E1                                     r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ENARDEN
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -630,32 +686,32 @@ Slack (MET) :             1.010ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.476    14.817    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/clka
-    RAMB36_X0Y18         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
-                         clock pessimism              0.258    15.075    
-                         clock uncertainty           -0.035    15.040    
-    RAMB36_X0Y18         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[5])
-                                                     -0.566    14.474    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+                         net (fo=186, routed)         1.474    14.815    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/clka
+    RAMB18_X0Y22         RAMB18E1                                     r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/CLKARDCLK
+                         clock pessimism              0.180    14.995    
+                         clock uncertainty           -0.035    14.960    
+    RAMB18_X0Y22         RAMB18E1 (Setup_ramb18e1_CLKARDCLK_ENARDEN)
+                                                     -0.647    14.313    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram
   -------------------------------------------------------------------
-                         required time                         14.474    
-                         arrival time                         -13.464    
+                         required time                         14.313    
+                         arrival time                         -13.216    
   -------------------------------------------------------------------
-                         slack                                  1.010    
+                         slack                                  1.096    
 
-Slack (MET) :             1.010ns  (required time - arrival time)
-  Source:                 nolabel_line67/write_enable_reg/C
+Slack (MET) :             1.114ns  (required time - arrival time)
+  Source:                 nolabel_line67/pixel_counter_reg[8]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/WEA[0]
+  Destination:            BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[8]
                             (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.353ns  (logic 0.459ns (13.691%)  route 2.894ns (86.309%))
+  Data Path Delay:        3.187ns  (logic 0.459ns (14.401%)  route 2.728ns (85.599%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.070ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.818ns = ( 14.818 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.075ns = ( 10.075 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.187ns
+  Clock Path Skew:        -0.097ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.806ns = ( 14.806 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.083ns = ( 10.083 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.180ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -671,68 +727,12 @@ Slack (MET) :             1.010ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     8.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.554    10.075    nolabel_line67/CLK
-    SLICE_X9Y61          FDCE                                         r  nolabel_line67/write_enable_reg/C  (IS_INVERTED)
+                         net (fo=186, routed)         1.562    10.083    nolabel_line67/CLK
+    SLICE_X32Y38         FDCE                                         r  nolabel_line67/pixel_counter_reg[8]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X9Y61          FDCE (Prop_fdce_C_Q)         0.459    10.534 r  nolabel_line67/write_enable_reg/Q
-                         net (fo=34, routed)          2.894    13.427    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/wea[0]
-    RAMB36_X2Y11         RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/WEA[0]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.477    14.818    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/clka
-    RAMB36_X2Y11         RAMB36E1                                     r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
-                         clock pessimism              0.187    15.005    
-                         clock uncertainty           -0.035    14.970    
-    RAMB36_X2Y11         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
-                                                     -0.532    14.438    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
-  -------------------------------------------------------------------
-                         required time                         14.438    
-                         arrival time                         -13.427    
-  -------------------------------------------------------------------
-                         slack                                  1.010    
-
-Slack (MET) :             1.013ns  (required time - arrival time)
-  Source:                 nolabel_line67/write_enable_reg/C
-                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/WEA[0]
-                            (rising edge-triggered cell RAMB36E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        3.344ns  (logic 0.459ns (13.726%)  route 2.885ns (86.274%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.076ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.812ns = ( 14.812 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.075ns = ( 10.075 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.187ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin fall edge)
-                                                      5.000     5.000 f  
-    W5                                                0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     6.458 f  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     8.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     8.521 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.554    10.075    nolabel_line67/CLK
-    SLICE_X9Y61          FDCE                                         r  nolabel_line67/write_enable_reg/C  (IS_INVERTED)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X9Y61          FDCE (Prop_fdce_C_Q)         0.459    10.534 r  nolabel_line67/write_enable_reg/Q
-                         net (fo=34, routed)          2.885    13.419    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/wea[0]
-    RAMB36_X1Y16         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/WEA[0]
+    SLICE_X32Y38         FDCE (Prop_fdce_C_Q)         0.459    10.542 r  nolabel_line67/pixel_counter_reg[8]/Q
+                         net (fo=35, routed)          2.728    13.271    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/addra[8]
+    RAMB36_X0Y13         RAMB36E1                                     r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/ADDRARDADDR[8]
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -742,17 +742,17 @@ Slack (MET) :             1.013ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         1.471    14.812    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
-    RAMB36_X1Y16         RAMB36E1                                     r  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
-                         clock pessimism              0.187    14.999    
-                         clock uncertainty           -0.035    14.964    
-    RAMB36_X1Y16         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
-                                                     -0.532    14.432    BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
+                         net (fo=186, routed)         1.465    14.806    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/clka
+    RAMB36_X0Y13         RAMB36E1                                     r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T/CLKARDCLK
+                         clock pessimism              0.180    14.986    
+                         clock uncertainty           -0.035    14.951    
+    RAMB36_X0Y13         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[8])
+                                                     -0.566    14.385    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T
   -------------------------------------------------------------------
-                         required time                         14.432    
-                         arrival time                         -13.419    
+                         required time                         14.385    
+                         arrival time                         -13.271    
   -------------------------------------------------------------------
-                         slack                                  1.013    
+                         slack                                  1.114    
 
 
 
@@ -760,20 +760,20 @@ Slack (MET) :             1.013ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.164ns  (arrival time - required time)
+Slack (MET) :             0.184ns  (arrival time - required time)
   Source:                 vga_cntr_module/v_sync_module/count_reg[6]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vga_cntr_module/v_sync_module/count_reg[8]/D
+  Destination:            vga_cntr_module/v_sync_module/V_display_on_reg/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.269ns  (logic 0.186ns (69.231%)  route 0.083ns (30.769%))
+  Data Path Delay:        0.317ns  (logic 0.186ns (58.617%)  route 0.131ns (41.383%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.979ns
-    Source Clock Delay      (SCD):    1.466ns
-    Clock Pessimism Removal (CPR):    0.500ns
+    Destination Clock Delay (DCD):    1.961ns
+    Source Clock Delay      (SCD):    1.447ns
+    Clock Pessimism Removal (CPR):    0.501ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -784,14 +784,14 @@ Slack (MET) :             0.164ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.583     1.466    vga_cntr_module/v_sync_module/CLK
-    SLICE_X5Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[6]/C
+                         net (fo=186, routed)         0.564     1.447    vga_cntr_module/v_sync_module/CLK
+    SLICE_X11Y39         FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[6]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y69          FDCE (Prop_fdce_C_Q)         0.141     1.607 r  vga_cntr_module/v_sync_module/count_reg[6]/Q
-                         net (fo=6, routed)           0.083     1.690    vga_cntr_module/v_sync_module/count_reg[6]
-    SLICE_X4Y69          LUT6 (Prop_lut6_I2_O)        0.045     1.735 r  vga_cntr_module/v_sync_module/count[8]_i_1__0/O
-                         net (fo=1, routed)           0.000     1.735    vga_cntr_module/v_sync_module/count[8]_i_1__0_n_0
-    SLICE_X4Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[8]/D
+    SLICE_X11Y39         FDCE (Prop_fdce_C_Q)         0.141     1.588 f  vga_cntr_module/v_sync_module/count_reg[6]/Q
+                         net (fo=6, routed)           0.131     1.719    vga_cntr_module/v_sync_module/count_reg[6]
+    SLICE_X10Y39         LUT6 (Prop_lut6_I2_O)        0.045     1.764 r  vga_cntr_module/v_sync_module/V_display_on_i_1/O
+                         net (fo=1, routed)           0.000     1.764    vga_cntr_module/v_sync_module/V_display_on_i_1_n_0
+    SLICE_X10Y39         FDCE                                         r  vga_cntr_module/v_sync_module/V_display_on_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -801,30 +801,279 @@ Slack (MET) :             0.164ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.851     1.979    vga_cntr_module/v_sync_module/CLK
-    SLICE_X4Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[8]/C
-                         clock pessimism             -0.500     1.479    
-    SLICE_X4Y69          FDCE (Hold_fdce_C_D)         0.092     1.571    vga_cntr_module/v_sync_module/count_reg[8]
+                         net (fo=186, routed)         0.834     1.961    vga_cntr_module/v_sync_module/CLK
+    SLICE_X10Y39         FDCE                                         r  vga_cntr_module/v_sync_module/V_display_on_reg/C
+                         clock pessimism             -0.501     1.460    
+    SLICE_X10Y39         FDCE (Hold_fdce_C_D)         0.120     1.580    vga_cntr_module/v_sync_module/V_display_on_reg
   -------------------------------------------------------------------
-                         required time                         -1.571    
-                         arrival time                           1.735    
+                         required time                         -1.580    
+                         arrival time                           1.764    
   -------------------------------------------------------------------
-                         slack                                  0.164    
+                         slack                                  0.184    
 
-Slack (MET) :             0.181ns  (arrival time - required time)
-  Source:                 vga_cntr_module/edge_usec/ff_cur_reg/C
+Slack (MET) :             0.187ns  (arrival time - required time)
+  Source:                 BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.270ns  (logic 0.141ns (52.131%)  route 0.129ns (47.869%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.963ns
+    Source Clock Delay      (SCD):    1.449ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.566     1.449    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
+    SLICE_X48Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y46         FDRE (Prop_fdre_C_Q)         0.141     1.590 r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/Q
+                         net (fo=2, routed)           0.129     1.720    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe[0]
+    SLICE_X49Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.836     1.963    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
+    SLICE_X49Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/C
+                         clock pessimism             -0.501     1.462    
+    SLICE_X49Y46         FDRE (Hold_fdre_C_D)         0.070     1.532    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -1.532    
+                         arrival time                           1.720    
+  -------------------------------------------------------------------
+                         slack                                  0.187    
+
+Slack (MET) :             0.198ns  (arrival time - required time)
+  Source:                 vga_cntr_module/v_sync_module/count_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vga_cntr_module/v_sync_module/count_reg[3]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.319ns  (logic 0.246ns (77.156%)  route 0.073ns (22.844%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.962ns
+    Source Clock Delay      (SCD):    1.448ns
+    Clock Pessimism Removal (CPR):    0.514ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.565     1.448    vga_cntr_module/v_sync_module/CLK
+    SLICE_X12Y40         FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y40         FDCE (Prop_fdce_C_Q)         0.148     1.596 r  vga_cntr_module/v_sync_module/count_reg[2]/Q
+                         net (fo=7, routed)           0.073     1.669    vga_cntr_module/v_sync_module/count_reg[2]
+    SLICE_X12Y40         LUT6 (Prop_lut6_I1_O)        0.098     1.767 r  vga_cntr_module/v_sync_module/count[3]_i_1/O
+                         net (fo=1, routed)           0.000     1.767    vga_cntr_module/v_sync_module/p_0_in__0[3]
+    SLICE_X12Y40         FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.835     1.962    vga_cntr_module/v_sync_module/CLK
+    SLICE_X12Y40         FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[3]/C
+                         clock pessimism             -0.514     1.448    
+    SLICE_X12Y40         FDCE (Hold_fdce_C_D)         0.121     1.569    vga_cntr_module/v_sync_module/count_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -1.569    
+                         arrival time                           1.767    
+  -------------------------------------------------------------------
+                         slack                                  0.198    
+
+Slack (MET) :             0.198ns  (arrival time - required time)
+  Source:                 vga_cntr_module/h_sync_module/count_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vga_cntr_module/h_sync_module/count_reg[4]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.319ns  (logic 0.246ns (77.136%)  route 0.073ns (22.864%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.990ns
+    Source Clock Delay      (SCD):    1.475ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.592     1.475    vga_cntr_module/h_sync_module/CLK
+    SLICE_X6Y41          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X6Y41          FDCE (Prop_fdce_C_Q)         0.148     1.623 r  vga_cntr_module/h_sync_module/count_reg[3]/Q
+                         net (fo=4, routed)           0.073     1.696    vga_cntr_module/h_sync_module/count_reg[3]
+    SLICE_X6Y41          LUT6 (Prop_lut6_I4_O)        0.098     1.794 r  vga_cntr_module/h_sync_module/count[4]_i_1/O
+                         net (fo=1, routed)           0.000     1.794    vga_cntr_module/h_sync_module/p_0_in[4]
+    SLICE_X6Y41          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.863     1.990    vga_cntr_module/h_sync_module/CLK
+    SLICE_X6Y41          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[4]/C
+                         clock pessimism             -0.515     1.475    
+    SLICE_X6Y41          FDCE (Hold_fdce_C_D)         0.121     1.596    vga_cntr_module/h_sync_module/count_reg[4]
+  -------------------------------------------------------------------
+                         required time                         -1.596    
+                         arrival time                           1.794    
+  -------------------------------------------------------------------
+                         slack                                  0.198    
+
+Slack (MET) :             0.204ns  (arrival time - required time)
+  Source:                 BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.283ns  (logic 0.141ns (49.827%)  route 0.142ns (50.173%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.963ns
+    Source Clock Delay      (SCD):    1.449ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.566     1.449    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
+    SLICE_X48Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y46         FDRE (Prop_fdre_C_Q)         0.141     1.590 r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/Q
+                         net (fo=4, routed)           0.142     1.732    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe[1]
+    SLICE_X49Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.836     1.963    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
+    SLICE_X49Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/C
+                         clock pessimism             -0.501     1.462    
+    SLICE_X49Y46         FDRE (Hold_fdre_C_D)         0.066     1.528    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -1.528    
+                         arrival time                           1.732    
+  -------------------------------------------------------------------
+                         slack                                  0.204    
+
+Slack (MET) :             0.210ns  (arrival time - required time)
+  Source:                 BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.280ns  (logic 0.141ns (50.399%)  route 0.139ns (49.601%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.963ns
+    Source Clock Delay      (SCD):    1.449ns
+    Clock Pessimism Removal (CPR):    0.514ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.566     1.449    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
+    SLICE_X48Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y46         FDRE (Prop_fdre_C_Q)         0.141     1.590 r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/Q
+                         net (fo=4, routed)           0.139     1.729    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe[2]
+    SLICE_X48Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.836     1.963    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
+    SLICE_X48Y46         FDRE                                         r  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/C
+                         clock pessimism             -0.514     1.449    
+    SLICE_X48Y46         FDRE (Hold_fdre_C_D)         0.070     1.519    BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -1.519    
+                         arrival time                           1.729    
+  -------------------------------------------------------------------
+                         slack                                  0.210    
+
+Slack (MET) :             0.230ns  (arrival time - required time)
+  Source:                 vga_cntr_module/mh_25/count_sysclk_reg[0]/C
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vga_cntr_module/edge_usec/ff_old_reg/D
+  Destination:            vga_cntr_module/mh_25/count_sysclk_reg[1]/D
                             (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin fall@5.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        0.271ns  (logic 0.146ns (53.951%)  route 0.125ns (46.049%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.980ns = ( 6.980 - 5.000 ) 
-    Source Clock Delay      (SCD):    1.468ns = ( 6.468 - 5.000 ) 
-    Clock Pessimism Removal (CPR):    0.499ns
+  Data Path Delay:        0.344ns  (logic 0.188ns (54.635%)  route 0.156ns (45.365%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.990ns = ( 6.990 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.475ns = ( 6.475 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -835,12 +1084,14 @@ Slack (MET) :             0.181ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     5.226 f  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     5.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     5.884 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.585     6.468    vga_cntr_module/edge_usec/CLK
-    SLICE_X4Y67          FDCE                                         r  vga_cntr_module/edge_usec/ff_cur_reg/C  (IS_INVERTED)
+                         net (fo=186, routed)         0.592     6.475    vga_cntr_module/mh_25/CLK
+    SLICE_X7Y40          FDCE                                         r  vga_cntr_module/mh_25/count_sysclk_reg[0]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y67          FDCE (Prop_fdce_C_Q)         0.146     6.614 r  vga_cntr_module/edge_usec/ff_cur_reg/Q
-                         net (fo=2, routed)           0.125     6.739    vga_cntr_module/edge_usec/p_0_in[1]
-    SLICE_X5Y68          FDCE                                         r  vga_cntr_module/edge_usec/ff_old_reg/D
+    SLICE_X7Y40          FDCE (Prop_fdce_C_Q)         0.146     6.621 r  vga_cntr_module/mh_25/count_sysclk_reg[0]/Q
+                         net (fo=2, routed)           0.156     6.777    vga_cntr_module/mh_25/count_sysclk_reg[0]
+    SLICE_X7Y40          LUT2 (Prop_lut2_I1_O)        0.042     6.819 r  vga_cntr_module/mh_25/count_sysclk[1]_i_1/O
+                         net (fo=1, routed)           0.000     6.819    vga_cntr_module/mh_25/count_sysclk[1]_i_1_n_0
+    SLICE_X7Y40          FDCE                                         r  vga_cntr_module/mh_25/count_sysclk_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin fall edge)
@@ -850,17 +1101,68 @@ Slack (MET) :             0.181ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     5.414 f  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     6.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     6.128 f  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.853     6.980    vga_cntr_module/edge_usec/CLK
-    SLICE_X5Y68          FDCE                                         r  vga_cntr_module/edge_usec/ff_old_reg/C  (IS_INVERTED)
-                         clock pessimism             -0.499     6.481    
-    SLICE_X5Y68          FDCE (Hold_fdce_C_D)         0.077     6.558    vga_cntr_module/edge_usec/ff_old_reg
+                         net (fo=186, routed)         0.863     6.990    vga_cntr_module/mh_25/CLK
+    SLICE_X7Y40          FDCE                                         r  vga_cntr_module/mh_25/count_sysclk_reg[1]/C  (IS_INVERTED)
+                         clock pessimism             -0.515     6.475    
+    SLICE_X7Y40          FDCE (Hold_fdce_C_D)         0.114     6.589    vga_cntr_module/mh_25/count_sysclk_reg[1]
   -------------------------------------------------------------------
-                         required time                         -6.558    
-                         arrival time                           6.739    
+                         required time                         -6.589    
+                         arrival time                           6.819    
   -------------------------------------------------------------------
-                         slack                                  0.181    
+                         slack                                  0.230    
 
-Slack (MET) :             0.190ns  (arrival time - required time)
+Slack (MET) :             0.239ns  (arrival time - required time)
+  Source:                 vga_cntr_module/h_sync_module/count_reg[9]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vga_cntr_module/h_sync_module/count_reg[7]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.376ns  (logic 0.209ns (55.523%)  route 0.167ns (44.477%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.989ns
+    Source Clock Delay      (SCD):    1.474ns
+    Clock Pessimism Removal (CPR):    0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.591     1.474    vga_cntr_module/h_sync_module/CLK
+    SLICE_X6Y38          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X6Y38          FDCE (Prop_fdce_C_Q)         0.164     1.638 f  vga_cntr_module/h_sync_module/count_reg[9]/Q
+                         net (fo=9, routed)           0.167     1.806    vga_cntr_module/h_sync_module/count_reg[9]
+    SLICE_X6Y39          LUT4 (Prop_lut4_I2_O)        0.045     1.851 r  vga_cntr_module/h_sync_module/count[7]_i_1/O
+                         net (fo=1, routed)           0.000     1.851    vga_cntr_module/h_sync_module/p_0_in[7]
+    SLICE_X6Y39          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.862     1.989    vga_cntr_module/h_sync_module/CLK
+    SLICE_X6Y39          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[7]/C
+                         clock pessimism             -0.499     1.490    
+    SLICE_X6Y39          FDCE (Hold_fdce_C_D)         0.121     1.611    vga_cntr_module/h_sync_module/count_reg[7]
+  -------------------------------------------------------------------
+                         required time                         -1.611    
+                         arrival time                           1.851    
+  -------------------------------------------------------------------
+                         slack                                  0.239    
+
+Slack (MET) :             0.241ns  (arrival time - required time)
   Source:                 vga_cntr_module/h_sync_module/count_reg[9]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            vga_cntr_module/h_sync_module/count_reg[0]/D
@@ -868,12 +1170,12 @@ Slack (MET) :             0.190ns  (arrival time - required time)
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.295ns  (logic 0.209ns (70.740%)  route 0.086ns (29.260%))
+  Data Path Delay:        0.378ns  (logic 0.209ns (55.230%)  route 0.169ns (44.770%))
   Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.984ns
-    Source Clock Delay      (SCD):    1.471ns
-    Clock Pessimism Removal (CPR):    0.500ns
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.989ns
+    Source Clock Delay      (SCD):    1.474ns
+    Clock Pessimism Removal (CPR):    0.499ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -884,65 +1186,14 @@ Slack (MET) :             0.190ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.588     1.471    vga_cntr_module/h_sync_module/CLK
-    SLICE_X2Y66          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[9]/C
+                         net (fo=186, routed)         0.591     1.474    vga_cntr_module/h_sync_module/CLK
+    SLICE_X6Y38          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[9]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y66          FDCE (Prop_fdce_C_Q)         0.164     1.635 f  vga_cntr_module/h_sync_module/count_reg[9]/Q
-                         net (fo=9, routed)           0.086     1.722    vga_cntr_module/h_sync_module/count_reg[9]
-    SLICE_X3Y66          LUT6 (Prop_lut6_I4_O)        0.045     1.767 r  vga_cntr_module/h_sync_module/count[0]_i_1/O
-                         net (fo=1, routed)           0.000     1.767    vga_cntr_module/h_sync_module/p_0_in[0]
-    SLICE_X3Y66          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.856     1.984    vga_cntr_module/h_sync_module/CLK
-    SLICE_X3Y66          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[0]/C
-                         clock pessimism             -0.500     1.484    
-    SLICE_X3Y66          FDCE (Hold_fdce_C_D)         0.092     1.576    vga_cntr_module/h_sync_module/count_reg[0]
-  -------------------------------------------------------------------
-                         required time                         -1.576    
-                         arrival time                           1.767    
-  -------------------------------------------------------------------
-                         slack                                  0.190    
-
-Slack (MET) :             0.192ns  (arrival time - required time)
-  Source:                 vga_cntr_module/v_sync_module/count_reg[5]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vga_cntr_module/v_sync_module/count_reg[7]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.312ns  (logic 0.190ns (60.875%)  route 0.122ns (39.125%))
-  Logic Levels:           1  (LUT5=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.979ns
-    Source Clock Delay      (SCD):    1.466ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.583     1.466    vga_cntr_module/v_sync_module/CLK
-    SLICE_X4Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y69          FDCE (Prop_fdce_C_Q)         0.141     1.607 r  vga_cntr_module/v_sync_module/count_reg[5]/Q
-                         net (fo=7, routed)           0.122     1.729    vga_cntr_module/v_sync_module/count_reg[5]
-    SLICE_X5Y69          LUT5 (Prop_lut5_I2_O)        0.049     1.778 r  vga_cntr_module/v_sync_module/count[7]_i_1__0/O
-                         net (fo=1, routed)           0.000     1.778    vga_cntr_module/v_sync_module/count[7]_i_1__0_n_0
-    SLICE_X5Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[7]/D
+    SLICE_X6Y38          FDCE (Prop_fdce_C_Q)         0.164     1.638 f  vga_cntr_module/h_sync_module/count_reg[9]/Q
+                         net (fo=9, routed)           0.169     1.808    vga_cntr_module/h_sync_module/count_reg[9]
+    SLICE_X6Y39          LUT6 (Prop_lut6_I4_O)        0.045     1.853 r  vga_cntr_module/h_sync_module/count[0]_i_1/O
+                         net (fo=1, routed)           0.000     1.853    vga_cntr_module/h_sync_module/p_0_in[0]
+    SLICE_X6Y39          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -952,315 +1203,64 @@ Slack (MET) :             0.192ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.851     1.979    vga_cntr_module/v_sync_module/CLK
-    SLICE_X5Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[7]/C
-                         clock pessimism             -0.500     1.479    
-    SLICE_X5Y69          FDCE (Hold_fdce_C_D)         0.107     1.586    vga_cntr_module/v_sync_module/count_reg[7]
+                         net (fo=186, routed)         0.862     1.989    vga_cntr_module/h_sync_module/CLK
+    SLICE_X6Y39          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[0]/C
+                         clock pessimism             -0.499     1.490    
+    SLICE_X6Y39          FDCE (Hold_fdce_C_D)         0.121     1.611    vga_cntr_module/h_sync_module/count_reg[0]
   -------------------------------------------------------------------
-                         required time                         -1.586    
-                         arrival time                           1.778    
+                         required time                         -1.611    
+                         arrival time                           1.853    
   -------------------------------------------------------------------
-                         slack                                  0.192    
+                         slack                                  0.241    
 
-Slack (MET) :             0.197ns  (arrival time - required time)
-  Source:                 BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/D
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             0.245ns  (arrival time - required time)
+  Source:                 vga_cntr_module/mh_25/count_sysclk_reg[1]/C
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            vga_cntr_module/mh_25/edge_usec/ff_cur_reg/D
+                            (falling edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.269ns  (logic 0.141ns (52.485%)  route 0.128ns (47.515%))
+  Requirement:            0.000ns  (sys_clk_pin fall@5.000ns - sys_clk_pin fall@5.000ns)
+  Data Path Delay:        0.264ns  (logic 0.133ns (50.399%)  route 0.131ns (49.601%))
   Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.957ns
-    Source Clock Delay      (SCD):    1.444ns
-    Clock Pessimism Removal (CPR):    0.500ns
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.990ns = ( 6.990 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.475ns = ( 6.475 - 5.000 ) 
+    Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.561     1.444    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
-    SLICE_X9Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     5.226 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     5.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     5.884 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.592     6.475    vga_cntr_module/mh_25/CLK
+    SLICE_X7Y40          FDCE                                         r  vga_cntr_module/mh_25/count_sysclk_reg[1]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X9Y62          FDRE (Prop_fdre_C_Q)         0.141     1.585 r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/Q
-                         net (fo=2, routed)           0.128     1.713    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe[0]
-    SLICE_X8Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/D
+    SLICE_X7Y40          FDCE (Prop_fdce_C_Q)         0.133     6.608 r  vga_cntr_module/mh_25/count_sysclk_reg[1]/Q
+                         net (fo=2, routed)           0.131     6.739    vga_cntr_module/mh_25/edge_usec/Q[0]
+    SLICE_X7Y40          FDCE                                         r  vga_cntr_module/mh_25/edge_usec/ff_cur_reg/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.829     1.957    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
-    SLICE_X8Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/C
-                         clock pessimism             -0.500     1.457    
-    SLICE_X8Y62          FDRE (Hold_fdre_C_D)         0.059     1.516    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]
+                         (clock sys_clk_pin fall edge)
+                                                      5.000     5.000 f  
+    W5                                                0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     5.414 f  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     6.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     6.128 f  clk_IBUF_BUFG_inst/O
+                         net (fo=186, routed)         0.863     6.990    vga_cntr_module/mh_25/edge_usec/CLK
+    SLICE_X7Y40          FDCE                                         r  vga_cntr_module/mh_25/edge_usec/ff_cur_reg/C  (IS_INVERTED)
+                         clock pessimism             -0.515     6.475    
+    SLICE_X7Y40          FDCE (Hold_fdce_C_D)         0.019     6.494    vga_cntr_module/mh_25/edge_usec/ff_cur_reg
   -------------------------------------------------------------------
-                         required time                         -1.516    
-                         arrival time                           1.713    
+                         required time                         -6.494    
+                         arrival time                           6.739    
   -------------------------------------------------------------------
-                         slack                                  0.197    
-
-Slack (MET) :             0.203ns  (arrival time - required time)
-  Source:                 vga_cntr_module/v_sync_module/count_reg[5]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vga_cntr_module/v_sync_module/count_reg[6]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.308ns  (logic 0.186ns (60.367%)  route 0.122ns (39.633%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.979ns
-    Source Clock Delay      (SCD):    1.466ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.583     1.466    vga_cntr_module/v_sync_module/CLK
-    SLICE_X4Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y69          FDCE (Prop_fdce_C_Q)         0.141     1.607 r  vga_cntr_module/v_sync_module/count_reg[5]/Q
-                         net (fo=7, routed)           0.122     1.729    vga_cntr_module/v_sync_module/count_reg[5]
-    SLICE_X5Y69          LUT4 (Prop_lut4_I1_O)        0.045     1.774 r  vga_cntr_module/v_sync_module/count[6]_i_1__0/O
-                         net (fo=1, routed)           0.000     1.774    vga_cntr_module/v_sync_module/count[6]_i_1__0_n_0
-    SLICE_X5Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[6]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.851     1.979    vga_cntr_module/v_sync_module/CLK
-    SLICE_X5Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[6]/C
-                         clock pessimism             -0.500     1.479    
-    SLICE_X5Y69          FDCE (Hold_fdce_C_D)         0.092     1.571    vga_cntr_module/v_sync_module/count_reg[6]
-  -------------------------------------------------------------------
-                         required time                         -1.571    
-                         arrival time                           1.774    
-  -------------------------------------------------------------------
-                         slack                                  0.203    
-
-Slack (MET) :             0.204ns  (arrival time - required time)
-  Source:                 BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/D
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.280ns  (logic 0.141ns (50.334%)  route 0.139ns (49.666%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.957ns
-    Source Clock Delay      (SCD):    1.444ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.561     1.444    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
-    SLICE_X9Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X9Y62          FDRE (Prop_fdre_C_Q)         0.141     1.585 r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/Q
-                         net (fo=4, routed)           0.139     1.724    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe[2]
-    SLICE_X8Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.829     1.957    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
-    SLICE_X8Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/C
-                         clock pessimism             -0.500     1.457    
-    SLICE_X8Y62          FDRE (Hold_fdre_C_D)         0.063     1.520    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]
-  -------------------------------------------------------------------
-                         required time                         -1.520    
-                         arrival time                           1.724    
-  -------------------------------------------------------------------
-                         slack                                  0.204    
-
-Slack (MET) :             0.211ns  (arrival time - required time)
-  Source:                 vga_cntr_module/h_sync_module/count_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vga_cntr_module/h_sync_module/count_reg[1]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.335ns  (logic 0.186ns (55.594%)  route 0.149ns (44.406%))
-  Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.982ns
-    Source Clock Delay      (SCD):    1.471ns
-    Clock Pessimism Removal (CPR):    0.478ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.588     1.471    vga_cntr_module/h_sync_module/CLK
-    SLICE_X3Y66          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y66          FDCE (Prop_fdce_C_Q)         0.141     1.612 r  vga_cntr_module/h_sync_module/count_reg[0]/Q
-                         net (fo=7, routed)           0.149     1.761    vga_cntr_module/h_sync_module/count_reg[0]
-    SLICE_X4Y66          LUT3 (Prop_lut3_I0_O)        0.045     1.806 r  vga_cntr_module/h_sync_module/count[1]_i_1/O
-                         net (fo=1, routed)           0.000     1.806    vga_cntr_module/h_sync_module/p_0_in[1]
-    SLICE_X4Y66          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.855     1.982    vga_cntr_module/h_sync_module/CLK
-    SLICE_X4Y66          FDCE                                         r  vga_cntr_module/h_sync_module/count_reg[1]/C
-                         clock pessimism             -0.478     1.504    
-    SLICE_X4Y66          FDCE (Hold_fdce_C_D)         0.091     1.595    vga_cntr_module/h_sync_module/count_reg[1]
-  -------------------------------------------------------------------
-                         required time                         -1.595    
-                         arrival time                           1.806    
-  -------------------------------------------------------------------
-                         slack                                  0.211    
-
-Slack (MET) :             0.213ns  (arrival time - required time)
-  Source:                 vga_cntr_module/v_sync_module/count_reg[4]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            vga_cntr_module/v_sync_module/count_reg[5]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.317ns  (logic 0.186ns (58.663%)  route 0.131ns (41.337%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.979ns
-    Source Clock Delay      (SCD):    1.466ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.583     1.466    vga_cntr_module/v_sync_module/CLK
-    SLICE_X5Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X5Y69          FDCE (Prop_fdce_C_Q)         0.141     1.607 r  vga_cntr_module/v_sync_module/count_reg[4]/Q
-                         net (fo=5, routed)           0.131     1.738    vga_cntr_module/v_sync_module/count_reg[4]
-    SLICE_X4Y69          LUT6 (Prop_lut6_I4_O)        0.045     1.783 r  vga_cntr_module/v_sync_module/count[5]_i_1__0/O
-                         net (fo=1, routed)           0.000     1.783    vga_cntr_module/v_sync_module/count[5]_i_1__0_n_0
-    SLICE_X4Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[5]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.851     1.979    vga_cntr_module/v_sync_module/CLK
-    SLICE_X4Y69          FDCE                                         r  vga_cntr_module/v_sync_module/count_reg[5]/C
-                         clock pessimism             -0.500     1.479    
-    SLICE_X4Y69          FDCE (Hold_fdce_C_D)         0.091     1.570    vga_cntr_module/v_sync_module/count_reg[5]
-  -------------------------------------------------------------------
-                         required time                         -1.570    
-                         arrival time                           1.783    
-  -------------------------------------------------------------------
-                         slack                                  0.213    
-
-Slack (MET) :             0.215ns  (arrival time - required time)
-  Source:                 BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/D
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.280ns  (logic 0.141ns (50.334%)  route 0.139ns (49.666%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.957ns
-    Source Clock Delay      (SCD):    1.444ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.561     1.444    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
-    SLICE_X9Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X9Y62          FDRE (Prop_fdre_C_Q)         0.141     1.585 r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/Q
-                         net (fo=4, routed)           0.139     1.724    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe[1]
-    SLICE_X8Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=186, routed)         0.829     1.957    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/clka
-    SLICE_X8Y62          FDRE                                         r  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/C
-                         clock pessimism             -0.500     1.457    
-    SLICE_X8Y62          FDRE (Hold_fdre_C_D)         0.052     1.509    BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]
-  -------------------------------------------------------------------
-                         required time                         -1.509    
-                         arrival time                           1.724    
-  -------------------------------------------------------------------
-                         slack                                  0.215    
+                         slack                                  0.245    
 
 
 
@@ -1274,36 +1274,36 @@ Period(ns):         10.000
 Sources:            { clk }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X2Y10  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X0Y10  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X2Y5   BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X1Y2   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X0Y6   BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X2Y8   BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X1Y7   BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X0Y17  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X1Y15  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X1Y4   BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X2Y8   BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X2Y3   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X1Y7   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X0Y4   BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X0Y13  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X1Y11  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
-Low Pulse Width   Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X6Y59   vga_cntr_module/out_vgaRed_reg[0]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X6Y59   vga_cntr_module/out_vgaRed_reg[1]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X6Y59   vga_cntr_module/out_vgaRed_reg[2]/C
-Low Pulse Width   Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X6Y59   vga_cntr_module/out_vgaRed_reg[3]/C
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y82   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/C
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/C
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/C
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[3]/C
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y82   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[4]/C
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[3]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y81   BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X9Y67   nolabel_line67/counter_green_reg[0]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X9Y67   nolabel_line67/counter_green_reg[1]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X9Y67   nolabel_line67/counter_green_reg[2]/C
-High Pulse Width  Fast    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X9Y67   nolabel_line67/counter_green_reg[3]/C
-High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X15Y43  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_cooolgate_en_gate_1_cooolDelFlop/C
-High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X10Y62  nolabel_line67/pixel_counter_reg[20]/C
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X0Y12  BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.892         10.000      7.108      RAMB36_X2Y10  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B/CLKARDCLK
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X8Y36   BRAM_cntr_module/VRAM_red/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[4]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X50Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X50Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X50Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X50Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[3]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X50Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[4]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X51Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X51Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X51Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[2]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X51Y37  BRAM_cntr_module/VRAM_green/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[3]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X49Y37  nolabel_line67/counter_green_reg[0]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X48Y38  nolabel_line67/counter_green_reg[2]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X8Y38   nolabel_line67/counter_red_reg[2]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X32Y43  nolabel_line67/pixel_counter_reg[28]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X32Y43  nolabel_line67/pixel_counter_reg[29]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X32Y43  nolabel_line67/pixel_counter_reg[30]/C
+High Pulse Width  Slow    FDCE/C              n/a            0.500         5.000       4.500      SLICE_X32Y43  nolabel_line67/pixel_counter_reg[31]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X49Y46  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X49Y46  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X48Y46  BRAM_cntr_module/VRAM_blue/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]/C
 
 
 

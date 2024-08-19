@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1724052615">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1724053560">
   <File Type="PA-TCL" Name="TOP_VGA_BRAM_test.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="TOP_VGA_BRAM_test_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="TOP_VGA_BRAM_test_reports.tcl"/>

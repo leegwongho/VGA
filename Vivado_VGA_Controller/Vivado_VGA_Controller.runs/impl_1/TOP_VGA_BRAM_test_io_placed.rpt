@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date                      : Mon Aug 19 16:32:13 2024
+| Date                      : Mon Aug 19 16:47:15 2024
 | Host                      : DESKTOP-TPO10A8 running 64-bit major release  (build 9200)
 | Command                   : report_io -file TOP_VGA_BRAM_test_io_placed.rpt
 | Design                    : TOP_VGA_BRAM_test

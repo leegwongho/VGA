@@ -62,119 +62,14 @@ proc step_failed { step } {
 
 set_msg_config -id {Common 17-41} -limit 10000000
 
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  set_param chipscope.maxJobs 3
-  set_param xicom.use_bs_reader 1
-  create_project -in_memory -part xc7a35tcpg236-1
-  set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.cache/wt [current_project]
-  set_property parent.project_path D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.xpr [current_project]
-  set_property ip_output_repo D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.runs/synth_1/TOP_VGA_BRAM_test.dcp
-  read_ip -quiet d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM.xci
-  read_xdc D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc
-  link_design -top TOP_VGA_BRAM_test -part xc7a35tcpg236-1
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force TOP_VGA_BRAM_test_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file TOP_VGA_BRAM_test_drc_opted.rpt -pb TOP_VGA_BRAM_test_drc_opted.pb -rpx TOP_VGA_BRAM_test_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
-    implement_debug_core 
-  } 
-  place_design 
-  write_checkpoint -force TOP_VGA_BRAM_test_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file TOP_VGA_BRAM_test_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file TOP_VGA_BRAM_test_utilization_placed.rpt -pb TOP_VGA_BRAM_test_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file TOP_VGA_BRAM_test_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step phys_opt_design
-set ACTIVE_STEP phys_opt_design
-set rc [catch {
-  create_msg_db phys_opt_design.pb
-  phys_opt_design 
-  write_checkpoint -force TOP_VGA_BRAM_test_physopt.dcp
-  close_msg_db -file phys_opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed phys_opt_design
-  return -code error $RESULT
-} else {
-  end_step phys_opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force TOP_VGA_BRAM_test_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file TOP_VGA_BRAM_test_drc_routed.rpt -pb TOP_VGA_BRAM_test_drc_routed.pb -rpx TOP_VGA_BRAM_test_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file TOP_VGA_BRAM_test_methodology_drc_routed.rpt -pb TOP_VGA_BRAM_test_methodology_drc_routed.pb -rpx TOP_VGA_BRAM_test_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file TOP_VGA_BRAM_test_power_routed.rpt -pb TOP_VGA_BRAM_test_power_summary_routed.pb -rpx TOP_VGA_BRAM_test_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file TOP_VGA_BRAM_test_route_status.rpt -pb TOP_VGA_BRAM_test_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file TOP_VGA_BRAM_test_timing_summary_routed.rpt -pb TOP_VGA_BRAM_test_timing_summary_routed.pb -rpx TOP_VGA_BRAM_test_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file TOP_VGA_BRAM_test_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file TOP_VGA_BRAM_test_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file TOP_VGA_BRAM_test_bus_skew_routed.rpt -pb TOP_VGA_BRAM_test_bus_skew_routed.pb -rpx TOP_VGA_BRAM_test_bus_skew_routed.rpx"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force TOP_VGA_BRAM_test_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
-
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_param chipscope.maxJobs 3
+  set_param xicom.use_bs_reader 1
+  open_checkpoint TOP_VGA_BRAM_test_routed.dcp
+  set_property webtalk.parent_dir D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.cache/wt [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   catch { write_mem_info -force TOP_VGA_BRAM_test.mmi }
   write_bitstream -force TOP_VGA_BRAM_test.bit 
