@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log vga_test_ver_3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source vga_test_ver_3.tcl
+EAStep vivado -log TOP_VGA_BRAM_test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_VGA_BRAM_test.tcl

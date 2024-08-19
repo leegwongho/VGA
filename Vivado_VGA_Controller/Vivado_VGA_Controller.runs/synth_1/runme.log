@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log vga_test_ver_3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source vga_test_ver_3.tcl
+    with args -log TOP_VGA_BRAM_test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_VGA_BRAM_test.tcl
 
 
 ****** Vivado v2019.2 (64-bit)
@@ -8,24 +8,25 @@
   **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
-source vga_test_ver_3.tcl -notrace
-Command: synth_design -top vga_test_ver_3 -part xc7a35tcpg236-1
+source TOP_VGA_BRAM_test.tcl -notrace
+Command: synth_design -top TOP_VGA_BRAM_test -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7580 
+INFO: Helper process launched with PID 14112 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 909.102 ; gain = 234.652
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 918.992 ; gain = 233.465
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'vga_test_ver_3' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:527]
+INFO: [Synth 8-6157] synthesizing module 'TOP_VGA_BRAM_test' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:22]
+INFO: [Synth 8-6157] synthesizing module 'VGA_Controller' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:79]
 INFO: [Synth 8-6157] synthesizing module 'clock_div_4' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:470]
 INFO: [Synth 8-6157] synthesizing module 'edge_detector_n' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:500]
 INFO: [Synth 8-6155] done synthesizing module 'edge_detector_n' (1#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:500]
 WARNING: [Synth 8-7023] instance 'edge_usec' of module 'edge_detector_n' has 5 connections declared, but only 4 given [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:493]
 INFO: [Synth 8-6155] done synthesizing module 'clock_div_4' (2#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:470]
-WARNING: [Synth 8-7023] instance 'edge_usec' of module 'edge_detector_n' has 5 connections declared, but only 4 given [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:545]
+WARNING: [Synth 8-7023] instance 'edge_usec' of module 'edge_detector_n' has 5 connections declared, but only 4 given [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:97]
 INFO: [Synth 8-6157] synthesizing module 'h_sync' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:584]
 	Parameter H_ACTIVE bound to: 10'b1010000000 
 	Parameter H_FRONT_PORCH bound to: 10'b1010010000 
@@ -38,9 +39,34 @@ INFO: [Synth 8-6157] synthesizing module 'v_sync' [D:/lany_workspace/Git/vga_con
 	Parameter V_SYNC bound to: 10'b0111101101 
 	Parameter V_BACK_PORCH bound to: 10'b1000001100 
 INFO: [Synth 8-6155] done synthesizing module 'v_sync' (4#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:635]
-INFO: [Synth 8-6155] done synthesizing module 'vga_test_ver_3' (5#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/imports/vga_motior_project/vga_project.v:527]
+INFO: [Synth 8-6155] done synthesizing module 'VGA_Controller' (5#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:79]
+INFO: [Synth 8-6157] synthesizing module 'BRAM_controller' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:136]
+INFO: [Synth 8-6157] synthesizing module 'video_BRAM' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.runs/synth_1/.Xil/Vivado-14488-DESKTOP-TPO10A8/realtime/video_BRAM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'video_BRAM' (6#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.runs/synth_1/.Xil/Vivado-14488-DESKTOP-TPO10A8/realtime/video_BRAM_stub.v:6]
+WARNING: [Synth 8-689] width (19) of port connection 'addra' does not match port width (17) of module 'video_BRAM' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:148]
+WARNING: [Synth 8-689] width (19) of port connection 'addra' does not match port width (17) of module 'video_BRAM' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:157]
+WARNING: [Synth 8-689] width (19) of port connection 'addra' does not match port width (17) of module 'video_BRAM' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:166]
+INFO: [Synth 8-6155] done synthesizing module 'BRAM_controller' (7#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:136]
+INFO: [Synth 8-6157] synthesizing module 'BRAM_test_generator' [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:173]
+INFO: [Synth 8-6155] done synthesizing module 'BRAM_test_generator' (8#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:173]
+INFO: [Synth 8-6155] done synthesizing module 'TOP_VGA_BRAM_test' (9#1) [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/VGA_controller.v:22]
+WARNING: [Synth 8-3331] design BRAM_controller has unconnected port reset_p
+WARNING: [Synth 8-3331] design BRAM_controller has unconnected port address[18]
+WARNING: [Synth 8-3331] design BRAM_controller has unconnected port address[17]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[11]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[10]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[9]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[8]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[7]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[6]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[5]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[4]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[3]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[2]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[1]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 982.938 ; gain = 308.488
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 994.992 ; gain = 309.465
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -53,57 +79,62 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 982.938 ; gain = 308.488
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 994.992 ; gain = 309.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 982.938 ; gain = 308.488
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 994.992 ; gain = 309.465
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 982.938 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 994.992 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM/video_BRAM_in_context.xdc] for cell 'BRAM_cntr_module/VRAM_red'
+Finished Parsing XDC File [d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM/video_BRAM_in_context.xdc] for cell 'BRAM_cntr_module/VRAM_red'
+Parsing XDC File [d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM/video_BRAM_in_context.xdc] for cell 'BRAM_cntr_module/VRAM_green'
+Finished Parsing XDC File [d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM/video_BRAM_in_context.xdc] for cell 'BRAM_cntr_module/VRAM_green'
+Parsing XDC File [d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM/video_BRAM_in_context.xdc] for cell 'BRAM_cntr_module/VRAM_blue'
+Finished Parsing XDC File [d:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/video_BRAM/video_BRAM/video_BRAM_in_context.xdc] for cell 'BRAM_cntr_module/VRAM_blue'
 Parsing XDC File [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc]
 WARNING: [Vivado 12-584] No ports matched 'sw[12]'. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:24]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:24]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sw[13]'. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:25]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:25]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sw[14]'. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:26]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:26]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sw[15]'. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:27]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc:27]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vga_test_ver_3_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/vga_test_ver_3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/TOP_VGA_BRAM_test_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/constrs_1/imports/Downloads/Basys-3-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_VGA_BRAM_test_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_VGA_BRAM_test_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1072.930 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1088.906 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1072.930 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1088.906 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAM_cntr_module/VRAM_blue' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAM_cntr_module/VRAM_green' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAM_cntr_module/VRAM_red' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1072.930 ; gain = 398.480
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1072.930 ; gain = 398.480
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for BRAM_cntr_module/VRAM_blue. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for BRAM_cntr_module/VRAM_green. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for BRAM_cntr_module/VRAM_red. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1072.930 ; gain = 398.480
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1072.930 ; gain = 398.480
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -116,18 +147,20 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     32 Bit       Adders := 1     
 	   2 Input     10 Bit       Adders := 2     
 	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 5     
 +---Registers : 
 	               10 Bit    Registers := 2     
 	                7 Bit    Registers := 1     
-	                4 Bit    Registers := 3     
-	                1 Bit    Registers := 8     
+	                4 Bit    Registers := 6     
+	                1 Bit    Registers := 10    
 +---Muxes : 
 	   2 Input     10 Bit        Muxes := 2     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 15    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -135,12 +168,6 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module vga_test_ver_3 
-Detailed RTL Component Info : 
-+---Registers : 
-	                4 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input      4 Bit        Muxes := 3     
 Module edge_detector_n 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -175,6 +202,22 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     10 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 5     
+Module VGA_Controller 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+Module BRAM_test_generator 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 5     
++---Registers : 
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -191,13 +234,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-3886] merging instance 'i_0/mh_25/count_sysclk_reg[2]' (FDC_1) to 'i_0/mh_25/count_sysclk_reg[3]'
-INFO: [Synth 8-3886] merging instance 'i_0/mh_25/count_sysclk_reg[3]' (FDC_1) to 'i_0/mh_25/count_sysclk_reg[4]'
-INFO: [Synth 8-3886] merging instance 'i_0/mh_25/count_sysclk_reg[4]' (FDC_1) to 'i_0/mh_25/count_sysclk_reg[5]'
-INFO: [Synth 8-3886] merging instance 'i_0/mh_25/count_sysclk_reg[5]' (FDC_1) to 'i_0/mh_25/count_sysclk_reg[6]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\mh_25/count_sysclk_reg[6] )
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[11]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[10]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[9]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[8]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[7]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[6]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[5]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[4]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[3]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[2]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[1]
+WARNING: [Synth 8-3331] design TOP_VGA_BRAM_test has unconnected port sw[0]
+INFO: [Synth 8-3886] merging instance 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[2]' (FDC_1) to 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[3]' (FDC_1) to 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[4]'
+INFO: [Synth 8-3886] merging instance 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[4]' (FDC_1) to 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[5]'
+INFO: [Synth 8-3886] merging instance 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[5]' (FDC_1) to 'i_1/vga_cntr_module/mh_25/count_sysclk_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\vga_cntr_module/mh_25/count_sysclk_reg[6] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1072.930 ; gain = 398.480
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -209,13 +264,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1072.930 ; gain = 398.480
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1078.082 ; gain = 403.633
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -227,7 +282,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1078.082 ; gain = 403.633
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1097.223 ; gain = 411.695
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -251,13 +306,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -276,85 +331,95 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |video_BRAM    |         3|
++------+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |BUFG |     1|
-|2     |LUT1 |     1|
-|3     |LUT2 |     4|
-|4     |LUT3 |    17|
-|5     |LUT4 |     5|
-|6     |LUT5 |    10|
-|7     |LUT6 |    15|
-|8     |FDCE |    40|
-|9     |FDPE |     2|
-|10    |IBUF |    14|
-|11    |OBUF |    14|
-+------+-----+------+
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |video_BRAM    |     1|
+|2     |video_BRAM__3 |     1|
+|3     |video_BRAM__4 |     1|
+|4     |BUFG          |     1|
+|5     |CARRY4        |    20|
+|6     |LUT1          |     5|
+|7     |LUT2          |    71|
+|8     |LUT3          |    18|
+|9     |LUT4          |    12|
+|10    |LUT5          |    11|
+|11    |LUT6          |    13|
+|12    |FDCE          |    85|
+|13    |FDPE          |     3|
+|14    |IBUF          |     2|
+|15    |OBUF          |    14|
++------+--------------+------+
 
 Report Instance Areas: 
-+------+----------------+------------------+------+
-|      |Instance        |Module            |Cells |
-+------+----------------+------------------+------+
-|1     |top             |                  |   123|
-|2     |  edge_usec     |edge_detector_n   |     3|
-|3     |  h_sync_module |h_sync            |    30|
-|4     |  mh_25         |clock_div_4       |     7|
-|5     |    edge_usec   |edge_detector_n_0 |     3|
-|6     |  v_sync_module |v_sync            |    42|
-+------+----------------+------------------+------+
++------+-------------------+--------------------+------+
+|      |Instance           |Module              |Cells |
++------+-------------------+--------------------+------+
+|1     |top                |                    |   267|
+|2     |  BRAM_cntr_module |BRAM_controller     |    12|
+|3     |  nolabel_line67   |BRAM_test_generator |   145|
+|4     |  vga_cntr_module  |VGA_Controller      |    93|
+|5     |    edge_usec      |edge_detector_n     |     3|
+|6     |    h_sync_module  |h_sync              |    29|
+|7     |    mh_25          |clock_div_4         |     7|
+|8     |      edge_usec    |edge_detector_n_0   |     3|
+|9     |    v_sync_module  |v_sync              |    30|
++------+-------------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1101.133 ; gain = 415.605
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 1085.656 ; gain = 321.215
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1085.656 ; gain = 411.207
+Synthesis finished with 0 errors, 0 critical warnings and 12 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1101.133 ; gain = 313.375
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1101.133 ; gain = 415.605
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1096.703 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1112.195 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1100.562 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1116.707 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-25 Infos, 6 Warnings, 4 Critical Warnings and 0 Errors encountered.
+35 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1100.562 ; gain = 717.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1100.562 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1116.707 ; gain = 701.441
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1116.707 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.runs/synth_1/vga_test_ver_3.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file vga_test_ver_3_utilization_synth.rpt -pb vga_test_ver_3_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Aug 19 13:36:26 2024...
+INFO: [Common 17-1381] The checkpoint 'D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.runs/synth_1/TOP_VGA_BRAM_test.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TOP_VGA_BRAM_test_utilization_synth.rpt -pb TOP_VGA_BRAM_test_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 19 16:31:32 2024...

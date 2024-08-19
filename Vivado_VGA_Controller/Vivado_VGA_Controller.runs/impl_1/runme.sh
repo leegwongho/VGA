@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log vga_test_ver_3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source vga_test_ver_3.tcl -notrace
+EAStep vivado -log TOP_VGA_BRAM_test.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source TOP_VGA_BRAM_test.tcl -notrace
 
 
