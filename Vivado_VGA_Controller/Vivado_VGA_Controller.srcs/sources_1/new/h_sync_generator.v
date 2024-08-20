@@ -4,9 +4,10 @@
 module h_sync_generator(
     input clk, reset_p,
     input p_clk_cp,
-    output reg Hsync, H_display_on);
+    output reg Hsync, H_display_on,
+    output [9:0] count_h);
 
-    reg [9:0] count;
+    
 
     parameter H_ACTIVE = 10'd640;
     parameter H_FRONT_PORCH = 10'd656;
@@ -14,7 +15,7 @@ module h_sync_generator(
     parameter H_BACK_PORCH = 10'd800;
 
 
-
+    reg [9:0] count;
     always @ (negedge clk, posedge reset_p) begin
         if(reset_p) begin
             count = 10'd799;
@@ -49,5 +50,6 @@ module h_sync_generator(
         end
     end
 
+    assign count_h = (count < H_ACTIVE) ? count : 0;
 
 endmodule
