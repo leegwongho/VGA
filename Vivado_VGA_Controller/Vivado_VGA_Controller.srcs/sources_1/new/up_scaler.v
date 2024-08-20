@@ -1,5 +1,7 @@
-module up_scaler (
-    input clk, reset_p,
+module up_scaler 
+#(parameter scale_factor = $clog2(2))
+
+    (input clk, reset_p,
     input addr_x,
     input addr_y,
 
@@ -23,6 +25,6 @@ module up_scaler (
         end
     end
 
-    assign addr_x_scaler = addr_x>>1;
-    assign addr_y_scaler = addr_y>>1;
+    assign addr_x_scaler = addr_x>>scale_factor;
+    assign addr_y_scaler = addr_y>>scale_factor;
 endmodule
