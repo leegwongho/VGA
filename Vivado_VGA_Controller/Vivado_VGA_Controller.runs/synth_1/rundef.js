@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log TOP_VGA_BRAM_test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_VGA_BRAM_test.tcl" );
+         "-log video_memory_4bit_320x240.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source video_memory_4bit_320x240.tcl" );
 
 
 

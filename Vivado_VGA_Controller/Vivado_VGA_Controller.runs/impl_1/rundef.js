@@ -23,9 +23,9 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "write_bitstream", "begin" );
+ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log TOP_VGA_BRAM_test.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source TOP_VGA_BRAM_test.tcl -notrace" );
+         "-log video_memory_4bit_320x240.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source video_memory_4bit_320x240.tcl -notrace" );
 
 
 
