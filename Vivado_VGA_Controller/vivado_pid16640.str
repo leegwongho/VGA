@@ -1,0 +1,156 @@
+/*
+
+Xilinx Vivado v2019.2 (64-bit) [Major: 2019, Minor: 2]
+SW Build: 2708876 on Wed Nov  6 21:40:23 MST 2019
+IP Build: 2700528 on Thu Nov  7 00:09:20 MST 2019
+
+Process ID (PID): 16640
+License: Customer
+
+Current time: 	Tue Aug 20 14:23:20 KST 2024
+Time zone: 	Korean Standard Time (Asia/Seoul)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 1
+Available disk space: 18 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/Xilinx/Vivado/2019.2/tps/win64/jre9.0.4
+Java executable location: 	C:/Xilinx/Vivado/2019.2/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	USER
+User home directory: C:/Users/USER
+User working directory: E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller
+User country: 	KR
+User language: 	ko
+User locale: 	ko_KR
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2019.2
+RDI_DATADIR: C:/Xilinx/Vivado/2019.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2019.2/bin
+
+Vivado preferences file location: C:/Users/USER/AppData/Roaming/Xilinx/Vivado/2019.2/vivado.xml
+Vivado preferences directory: C:/Users/USER/AppData/Roaming/Xilinx/Vivado/2019.2/
+Vivado layouts directory: C:/Users/USER/AppData/Roaming/Xilinx/Vivado/2019.2/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2019.2/lib/classes/planAhead.jar
+Vivado log file location: 	E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/vivado.log
+Vivado journal file location: 	E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/vivado.jou
+Engine tmp dir: 	E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/.Xil/Vivado-16640-DESKTOP-3QF82U0
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2019.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2019.2/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2019.2
+XILINX_SDK: C:/Xilinx/Vitis/2019.2
+XILINX_VITIS: C:/Xilinx/Vitis/2019.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2019.2
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2019.2
+
+
+GUI allocated memory:	206 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 813 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bB (cr):  Open Project : addNotify
+// Opening Vivado Project: E:\Velilog\vga_proj\vga_con\Vivado_VGA_Controller\Vivado_VGA_Controller.xpr. Version: Vivado v2019.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 924 MB. GUI used memory: 65 MB. Current time: 8/20/24, 2:23:22 PM KST
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 109 MB (+111646kb) [00:00:09]
+// [Engine Memory]: 941 MB (+835602kb) [00:00:09]
+// [GUI Memory]: 118 MB (+3944kb) [00:00:10]
+// WARNING: HEventQueue.dispatchEvent() is taking  1634 ms.
+// Tcl Message: open_project E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'. 
+// Project name: Vivado_VGA_Controller; location: E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 987.551 ; gain = 275.996 
+dismissDialog("Open Project"); // bB (cr)
+// a (cr): Critical Messages: addNotify
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 17 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (a)
+dismissDialog("Critical Messages"); // a (cr)
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "xc7a35tcpg236-1"); // h (Q, cr)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// I (cr): Settings: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1637 ms.
+selectButton(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, (String) null); // t (a, I)
+// [GUI Memory]: 139 MB (+15942kb) [00:00:33]
+// c (I): Select Device: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1873 ms.
+selectTab(PAResourceOtoP.PartChooser_TABBED_PANE, (HResource) null, "Boards", 1); // i (B, c)
+// [Engine Memory]: 1,096 MB (+112923kb) [00:00:38]
+setText("PAResourceAtoD.BoardChooser_BOARD_TABLE_SEARCH_FIELD", "bas"); // OverlayTextField (I, c)
+selectTable(PAResourceAtoD.BoardChooser_BOARD_TABLE, "Basys3 ; Basys3 ; digilentinc.com ; 1.1 ; xc7a35tcpg236-1 ; 236 ; C.0 ; 106 ; 20800 ; 41600 ; 50 ; 0 ; 90 ; 2 ; 2 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1 ; 5 ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 0, "Basys3", 0); // d (O, c)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (c)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,096 MB. GUI used memory: 71 MB. Current time: 8/20/24, 2:23:52 PM KST
+dismissDialog("Select Device"); // c (I)
+selectButton(RDIResource.BaseDialog_APPLY, "Apply"); // a (I)
+// bB (cr):  Change Settings : addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: BOARD_MODIFIED
+// Tcl Message: set_property board_part digilentinc.com:basys3:part0:1.1 [current_project] 
+dismissDialog("Change Settings"); // bB (cr)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (I)
+dismissDialog("Settings"); // I (cr)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_VGA_BRAM_test (TOP_VGA_BRAM_test.v)]", 2, true); // B (F, cr) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_VGA_BRAM_test (TOP_VGA_BRAM_test.v)]", 2, true, false, false, false, false, true); // B (F, cr) - Double Click - Node
+// Launch External Editor: '"C:/Users/USER/AppData/Local/Programs/Microsoft VS Code/Code.exe" -g "E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/TOP_VGA_BRAM_test.v":4'
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 226 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_VGA_BRAM_test (TOP_VGA_BRAM_test.v)]", 2, true); // B (F, cr) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_VGA_BRAM_test (TOP_VGA_BRAM_test.v)]", 2, true, false, false, false, false, true); // B (F, cr) - Double Click - Node
+// Launch External Editor: '"C:/Users/USER/AppData/Local/Programs/Microsoft VS Code/Code.exe" -g "E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/new/TOP_VGA_BRAM_test.v":4'
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE

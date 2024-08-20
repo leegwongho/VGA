@@ -9,7 +9,7 @@ module TOP_VGA_BRAM_test (
 
     wire [3:0] inter_vgaRed, inter_vgaGreen, inter_vgaBlue;
     wire [3:0] gen_vgaRed, gen_vgaGreen, gen_vgaBlue;
-    wire [9:0] addr_x, addr_y;
+    wire [9:0] gen_addr_x, gen_addr_y;
     wire write_enable;
     wire display_on;
     wire [9:0] cur_pixel_coord_x, cur_pixel_coord_y;
@@ -59,19 +59,19 @@ module TOP_VGA_BRAM_test (
         
        .write_enable (write_enable),
        
-       .in_vgaRed (gen_vgaRed),
-       .in_vgaGreen (gen_vgaGreen),
-       .in_vgaBlue (gen_vgaBlue),
+       .porta_vgaRed (gen_vgaRed),
+       .porta_vgaGreen (gen_vgaGreen),
+       .porta_vgaBlue (gen_vgaBlue),
        
-       .in_addr_x (addr_x),
-       .in_addr_y (addr_y),
+       .in_addr_x (gen_addr_x),
+       .in_addr_y (gen_addr_y),
        
        .out_addr_x (cur_pixel_coord_x),
        .out_addr_y (cur_pixel_coord_y),
        
-       .out_vgaRed (inter_vgaRed),
-       .out_vgaGreen (inter_vgaGreen),
-       .out_vgaBlue (inter_vgaBlue)
+       .portb_vgaRed (inter_vgaRed),
+       .portb_vgaGreen (inter_vgaGreen),
+       .portb_vgaBlue (inter_vgaBlue)
     );
     
     BRAM_test_generator BRAM_test_gen_module (
@@ -82,8 +82,8 @@ module TOP_VGA_BRAM_test (
         .in_vsync (Vsync),
         .in_display_on (display_on),
         
-        .out_addr_x (cur_pixel_coord_x),
-        .out_addr_y (cur_pixel_coord_y),
+        .out_addr_x (gen_addr_x),
+        .out_addr_y (gen_addr_y),
         .write_enable (write_enable),
         
         .vgaRed (gen_vgaRed),
