@@ -1,6 +1,7 @@
 module up_scaler 
 #(parameter scale_factor = $clog2(2))
 
+
     (input clk, reset_p,
     input addr_x,
     input addr_y,
