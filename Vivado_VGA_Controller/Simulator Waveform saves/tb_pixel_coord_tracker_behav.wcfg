@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_pixel_coord_tracker_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_pixel_coord_tracker" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="999994fs"></ZoomStartTime>
+      <ZoomEndTime time="1000002fs"></ZoomEndTime>
+      <Cursor1Time time="1000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/tb_pixel_coord_tracker/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/reset_p" type="logic">
+      <obj_property name="ElementShortName">reset_p</obj_property>
+      <obj_property name="ObjectShortName">reset_p</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/Hsync" type="logic">
+      <obj_property name="ElementShortName">Hsync</obj_property>
+      <obj_property name="ObjectShortName">Hsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/Vsync" type="logic">
+      <obj_property name="ElementShortName">Vsync</obj_property>
+      <obj_property name="ObjectShortName">Vsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/display_on" type="logic">
+      <obj_property name="ElementShortName">display_on</obj_property>
+      <obj_property name="ObjectShortName">display_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/pixel_clock_pulse" type="logic">
+      <obj_property name="ElementShortName">pixel_clock_pulse</obj_property>
+      <obj_property name="ObjectShortName">pixel_clock_pulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/cur_pixel_coord_x" type="array">
+      <obj_property name="ElementShortName">cur_pixel_coord_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">cur_pixel_coord_x[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pixel_coord_tracker/cur_pixel_coord_y" type="array">
+      <obj_property name="ElementShortName">cur_pixel_coord_y[9:0]</obj_property>
+      <obj_property name="ObjectShortName">cur_pixel_coord_y[9:0]</obj_property>
+   </wvobject>
+</wave_config>

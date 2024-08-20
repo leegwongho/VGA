@@ -14,16 +14,16 @@ module pixel_coordinate_tracker (
 
     always @(negedge clk or posedge reset_p) begin
         if (reset_p) begin
-            pixel_coord_x = 0;
-            pixel_coord_y = 0;
+            pixel_coord_x = 10'h3ff;
+            pixel_coord_y = 10'h3ff;
         end
         else begin
             if (Vsync_nedeg) begin
-                pixel_coord_x = 0;
-                pixel_coord_y = 0;
+                pixel_coord_x = 10'h3ff;
+                pixel_coord_y = 10'h3ff;
             end
             else if (Hsync_nedeg) begin
-                pixel_coord_x = 0;
+                pixel_coord_x = 10'h3ff;
                 pixel_coord_y = pixel_coord_y + 1;
             end
             else if (pixel_clock_pusle && in_display_on) begin
