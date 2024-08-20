@@ -7,7 +7,7 @@ module up_scaler (
     output addr_y_scaler);
 
     wire w_25mhz;
-    clock_div_4 mh_25(
+    pixel_clock_generator mh_25(
                 .clk(clk), .reset_p(reset_p),
                 .clk_div_100(w_25mhz),
                 .cp_div_100());

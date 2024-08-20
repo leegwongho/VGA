@@ -33,7 +33,7 @@ module ADC_CONTROLLER(
 
     reg [11:0] adc_value_x, adc_value_y;
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             do_out_avr_x = 0;
             do_out_avr_y = 0;
@@ -70,7 +70,7 @@ module ADC_CONTROLLER(
 
 
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             x = 0;
             y = 0; 

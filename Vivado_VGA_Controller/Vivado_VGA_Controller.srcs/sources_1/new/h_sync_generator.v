@@ -15,9 +15,9 @@ module h_sync_generator(
 
 
 
-    always @ (posedge clk, posedge reset_p) begin
+    always @ (negedge clk, posedge reset_p) begin
         if(reset_p) begin
-            count = 0;
+            count = 10'd799;
             Hsync = 1;
             H_display_on = 0;
         end
@@ -29,19 +29,19 @@ module h_sync_generator(
                 count = count +1;
             end
 
-            if (count <= H_ACTIVE) begin
+            if (count < H_ACTIVE) begin
                 Hsync = 1;
                 H_display_on = 1;
             end
-            else if (count <= H_FRONT_PORCH) begin
+            else if (count < H_FRONT_PORCH) begin
                 Hsync = 1;
                 H_display_on = 0;
             end
-            else if (count <= H_SYNC) begin
+            else if (count < H_SYNC) begin
                 Hsync = 0;
                 H_display_on = 0;
             end
-            else if (count <= H_BACK_PORCH) begin
+            else if (count < H_BACK_PORCH) begin
                 Hsync = 1;
                 H_display_on = 0;
             end            

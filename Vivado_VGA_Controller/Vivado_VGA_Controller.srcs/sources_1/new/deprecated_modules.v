@@ -20,7 +20,7 @@ module vga_test_red(
 
     wire w_25mhz;
 
-    clock_div_4 mh_25(
+    pixel_clock_generator mh_25(
                 .clk(clk), .reset_p(reset_p),
                 .clk_div_100(w_25mhz),
                 .cp_div_100());
@@ -67,7 +67,7 @@ module vga_test_red(
     end
 
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if(reset_p) begin
             Hsync = 1;
             count_e = 1;
@@ -86,7 +86,7 @@ module vga_test_red(
     assign vgaGreen = 4'h0;
     assign vgaBlue = 4'h0;
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if(reset_p) begin
             Vsync = 1;
             count_e = 1;
@@ -113,7 +113,7 @@ module vga_test_red(
     //     end
     // end
 
-    // always @(posedge clk, posedge reset_p) begin
+    // always @(, posedge reset_p) begin
     //     if (reset_p) begin
     //         h_state_next = H_IDLE;
     //     end
@@ -172,7 +172,7 @@ module vga_test_ver_1(
 
     wire w_25mhz;
 
-    clock_div_4 mh_25(
+    pixel_clock_generator mh_25(
                 .clk(clk), .reset_p(reset_p),
                 .clk_div_100(w_25mhz),
                 .cp_div_100());
@@ -200,7 +200,7 @@ module vga_test_ver_1(
         end
     end
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             h_state_next = HSYNC_IDLE;
             count_h = 0;
@@ -238,7 +238,7 @@ module vga_test_ver_1(
     end
 
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             v_state_next = VSYNC_IDLE;
             Vsync = 0;
@@ -322,7 +322,7 @@ module vga_test_ver_2(
 
     wire w_25mhz;
 
-    clock_div_4 mh_25(
+    pixel_clock_generator mh_25(
                 .clk(clk), .reset_p(reset_p),
                 .clk_div_100(w_25mhz),
                 .cp_div_100());
@@ -350,7 +350,7 @@ module vga_test_ver_2(
 
     reg H_dispaly_data, V_dispaly_data;
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             h_state_next = HSYNC_ACTIVE;
             count_h = 0;
@@ -398,7 +398,7 @@ module vga_test_ver_2(
     end
 
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             v_state_next = VSYNC_ACTIVE;
             Vsync = 1;
@@ -480,7 +480,7 @@ module vga_test_ver_3(
     
     wire h_sync_nedge;
 
-    clock_div_4 mh_25(
+    pixel_clock_generator mh_25(
                 .clk(clk), .reset_p(reset_p),
                 .clk_div_100(w_25mhz),
                 .cp_div_100());
@@ -488,19 +488,19 @@ module vga_test_ver_3(
     edge_detector_n  edge_usec (.clk(clk), .reset_p(reset_p), .cp(Hsync), .n_edge(h_sync_nedge));
               
 
-    h_sync h_sync_module(
+    h_sync_generator h_sync_module(
                             .clk(clk), .reset_p(reset_p),
                             .p_clk_cp(w_25mhz),
                             .Hsync(Hsync), .H_display_on(H_display_on));
 
 
-    v_sync v_sync_module(
+    v_sync_generator v_sync_module(
                             .clk(clk), .reset_p(reset_p),
                             .h_sync_cp(h_sync_nedge),
                             .Vsync(Vsync), .V_display_on(V_display_on));
 
 
-    always @(posedge clk, posedge reset_p) begin
+    always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
             vgaRed  = 0; 
             vgaGreen = 0;
