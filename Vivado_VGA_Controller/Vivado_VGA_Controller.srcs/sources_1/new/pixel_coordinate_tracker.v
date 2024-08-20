@@ -30,7 +30,7 @@ module pixel_coordinate_tracker (
                 count_1_y = 1;
             end
 
-            if (pixel_clock_pusle && in_display_on) begin
+            if (pixel_clock_pulse && in_display_on) begin
                 pixel_coord_x = pixel_coord_x + count_1_x;
                 count_1_x = 1;
             end
