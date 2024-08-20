@@ -1,24 +1,4 @@
-*.runs/
+# Vivado git ignore
 *.cache/
-*.wdf
-*.pb
-*.sdb
-*.log
-*.type
-*.xdbg
-*.info
-*.exe
-*.obj
-*.jou
-*.wdb
-*.bat
-*.rpt
-*.dcp
-*.sh
-*.rpt
-*.prj
-*.rst
-*.ini
-*.opt
-*.do
-*.udo
+*.hw/
+*.runs/

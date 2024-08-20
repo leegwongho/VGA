@@ -12,7 +12,7 @@ module pixel_coordinate_tracker (
     edge_detector_n Hsync_edge_module (.clk(clk), .reset_p(reset_p), .cp(Hsync), .n_edge(Hsync_nedeg));
     edge_detector_n Vsync_edge_module (.clk(clk), .reset_p(reset_p), .cp(Vsync), .n_edge(Vsync_nedge));
 
-    always @(negedge clk or reset_p) begin
+    always @(negedge clk or posedge reset_p) begin
         if (reset_p) begin
             pixel_coord_x = 0;
             pixel_coord_y = 0;
