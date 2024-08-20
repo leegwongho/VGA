@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Tue Aug 20 12:38:19 2024
--- Host        : DESKTOP-TPO10A8 running 64-bit major release  (build 9200)
+-- Date        : Tue Aug 20 16:32:04 2024
+-- Host        : DESKTOP-3QF82U0 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/BRAM_4bit_512x240/BRAM_4bit_512x240_sim_netlist.vhdl
+--               E:/Velilog/vga_proj/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/BRAM_4bit_512x240/BRAM_4bit_512x240_sim_netlist.vhdl
 -- Design      : BRAM_4bit_512x240
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

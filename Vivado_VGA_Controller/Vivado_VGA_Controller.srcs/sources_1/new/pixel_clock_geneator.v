@@ -3,8 +3,7 @@
 
 module pixel_clock_generator (
     input clk, reset_p,
-    output pixel_clock_pulse
-);
+    output pixel_clock_pulse);
 
     parameter SYSCLK_FREQ = 100_000_000;
     parameter TARGET_FREQ =  25_000_000;

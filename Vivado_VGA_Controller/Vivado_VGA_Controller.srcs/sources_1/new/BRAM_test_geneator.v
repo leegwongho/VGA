@@ -17,7 +17,7 @@ module BRAM_test_generator (
     edge_detector_n vsync_edge_detector (.clk(clk), .reset_p(reset_p), .cp(in_vsync), .n_edge(vsync_nedge));
 
     reg [3:0] counter_red, counter_green, counter_blue;
-    integer pixel_counter;
+    //integer pixel_counter;
     
     // address manipulator
     always @(negedge clk or posedge reset_p) begin
@@ -56,20 +56,27 @@ module BRAM_test_generator (
         
     always @(negedge clk or posedge reset_p) begin
         if (reset_p) begin
-            pixel_counter = 0;
+            //pixel_counter = 0;
             counter_red = 0;
             counter_green = 0;
             counter_blue = 0;
         end
         else if (pixel_clock_pulse && in_display_on) begin
             if (write_enable) begin
-                counter_red = pixel_counter [8:4];
-                counter_green = pixel_counter [12:9];
-                counter_blue = pixel_counter [16:13];
+                if(out_addr_x <= 160)begin
+                    counter_red = 4'b1111;
+                    counter_green = 4'b0000;
+                    counter_blue = 4'b0000;
+                end
+                else begin
+                    counter_red = 4'b0000;
+                    counter_green = 4'b0000;
+                    counter_blue = 4'b0000;
+                end
             end
         end
         
-        pixel_counter = pixel_counter + 1;
+        //pixel_counter = pixel_counter + 1;
     end
     
     assign vgaRed = counter_red;
