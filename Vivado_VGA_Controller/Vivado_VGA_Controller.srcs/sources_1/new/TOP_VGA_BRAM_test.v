@@ -59,16 +59,14 @@ module TOP_VGA_BRAM_test (
         
        .write_enable (write_enable),
        
+       .porta_addr_x (gen_addr_x),
+       .porta_addr_y (gen_addr_y),
        .porta_vgaRed (gen_vgaRed),
        .porta_vgaGreen (gen_vgaGreen),
        .porta_vgaBlue (gen_vgaBlue),
        
-       .in_addr_x (gen_addr_x),
-       .in_addr_y (gen_addr_y),
-       
-       .out_addr_x (cur_pixel_coord_x),
-       .out_addr_y (cur_pixel_coord_y),
-       
+       .portb_addr_x (cur_pixel_coord_x),
+       .portb_addr_y (cur_pixel_coord_y),
        .portb_vgaRed (inter_vgaRed),
        .portb_vgaGreen (inter_vgaGreen),
        .portb_vgaBlue (inter_vgaBlue)
