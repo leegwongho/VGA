@@ -56,7 +56,7 @@ module tb_pixel_coord_tracker ();
         
         .in_vgaRed (),
         .in_vgaGreen (),
-         .in_vgaBlue (),
+        .in_vgaBlue (),
          
         .Hsync (Hsync),
         .Vsync (Vsync),

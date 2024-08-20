@@ -68,6 +68,8 @@ module BRAM_test_generator (
                 counter_blue = pixel_counter [16:13];
             end
         end
+        
+        pixel_counter = pixel_counter + 1;
     end
     
     assign vgaRed = counter_red;
