@@ -4,7 +4,7 @@
 // Tracks current pixel coordinates on monitor
 module pixel_coordinate_tracker (
     input clk, reset_p,
-    input Hsync, Vsync, pixel_clock_pusle, in_display_on,
+    input Hsync, Vsync, pixel_clock_pulse, in_display_on,
     output reg [9:0] pixel_coord_x, pixel_coord_y
 );
 
@@ -26,7 +26,7 @@ module pixel_coordinate_tracker (
                 pixel_coord_x = 10'h3ff;
                 pixel_coord_y = pixel_coord_y + 1;
             end
-            else if (pixel_clock_pusle && in_display_on) begin
+            else if (pixel_clock_pulse && in_display_on) begin
                 pixel_coord_x = pixel_coord_x + 1;
             end
         end
