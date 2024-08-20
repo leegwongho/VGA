@@ -49,7 +49,6 @@ BRAM_320x240_controller BC(
     .portb_vgaRed(B2V_Red), .portb_vgaGreen(B2V_Green), .portb_vgaBlue(B2V_Blue)
 );
 
-
 wire [3:0] vgaRed, vgaGreen, vgaBlue;
 BRAM_test_generator BTG(
     .clk(clk), .reset_p(reset_p),
