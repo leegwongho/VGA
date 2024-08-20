@@ -1,0 +1,4 @@
+# Vivado git ignore
+*.cache/
+*.hw/
+*.runs/
