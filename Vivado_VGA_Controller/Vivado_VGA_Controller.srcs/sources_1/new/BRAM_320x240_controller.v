@@ -14,7 +14,7 @@ module BRAM_320x240_controller(
     // some unused memory spaces, but this will eliminate usage of multiplication
     wire [16:0] porta_addr_1d = {porta_addr_y[7:0], porta_addr_x[8:0]};
     wire [16:0] portb_addr_1d = {portb_addr_y[7:0], portb_addr_x[8:0]};
-
+    
     BRAM_4bit_512x240 BRAM_red (
         .clka       (clk),
         .wea        (write_enable),
