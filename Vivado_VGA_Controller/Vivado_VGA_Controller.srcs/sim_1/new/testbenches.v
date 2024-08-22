@@ -1,33 +1,5 @@
 `timescale 1ns / 1ns
 
-module tb_TOP_module ();
-
-    reg clk, reset_p;
-    wire Hsync, Vsync;
-    wire [3:0] vgaRed, vgaGreen, vgaBlue;
-
-    TOP_module DUT (
-        clk, reset_p,
-        Hsync, Vsync,
-        vgaRed, vgaGreen, vgaBlue
-    );
-    
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
-    
-    initial begin
-        reset_p=0;
-        reset_p=1;
-        #10 reset_p=0;
-        repeat (100) begin
-            @(posedge Vsync) $stop;
-        end
-    end
-    
-endmodule
-
 
 module tb_TOP_VGA_BRAM_test ();
 

@@ -4,16 +4,14 @@
 module BRAM_320x240_controller(
     input clk, reset_p,
     input write_enable,
-    
-    input [9:0] porta_addr_x, porta_addr_y,
+    input [8:0] porta_addr_x, portb_addr_x,
+    input [7:0] porta_addr_y, portb_addr_y,
     input [3:0] porta_vgaRed, porta_vgaGreen, porta_vgaBlue,
-    
-    input [9:0] portb_addr_x, portb_addr_y,
     output [3:0] portb_vgaRed, portb_vgaGreen, portb_vgaBlue
 );
     // some unused memory spaces, but this will eliminate usage of multiplication
-    wire [16:0] porta_addr_1d = {porta_addr_y[7:0], porta_addr_x[8:0]};
-    wire [16:0] portb_addr_1d = {portb_addr_y[7:0], portb_addr_x[8:0]};
+    wire [16:0] porta_addr_1d = {porta_addr_y, porta_addr_x};
+    wire [16:0] portb_addr_1d = {portb_addr_y, portb_addr_x};
 
     BRAM_4bit_512x240 BRAM_red (
         .clka       (clk),

@@ -4,18 +4,15 @@
 module v_sync_generator(
     input clk, reset_p,
     input h_sync_cp,
-    output reg Vsync, V_display_on,
-    output [9:0] count_v);
+    output reg Vsync, V_display_on);
 
-    
+    reg [9:0] count;
 
     parameter V_ACTIVE = 10'd480;
     parameter V_FRONT_PORCH = 10'd491;
     parameter V_SYNC = 10'd493;
     parameter V_BACK_PORCH = 10'd524;
 
-
-    reg [9:0] count;
     always @ (negedge clk, posedge reset_p) begin
         if(reset_p) begin
             count = 523;
@@ -49,7 +46,5 @@ module v_sync_generator(
 
         end
     end
-    
-    assign count_v = (count < V_ACTIVE) ? count : 0;
 
 endmodule

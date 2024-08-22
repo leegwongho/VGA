@@ -1,6 +1,7 @@
 module pixel_coord_converter
-    (input [9:0] addr_x, addr_y,
-     output [9:0] addr_x_scaler, addr_y_scaler);
+    (input clk, reset_p,
+    input addr_x, addr_y,
+    output addr_x_scaler, addr_y_scaler);
 
     parameter scale_factor = 2;
     localparam bit_shift = $clog2(scale_factor);

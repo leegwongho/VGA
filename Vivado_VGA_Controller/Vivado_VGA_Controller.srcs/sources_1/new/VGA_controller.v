@@ -6,8 +6,7 @@ module VGA_controller(
     input pixel_clock_pulse,
     input [3:0] in_vgaRed, in_vgaGreen, in_vgaBlue,
     output  Hsync, Vsync, out_display_on,
-    output reg [3:0] out_vgaRed, out_vgaGreen, out_vgaBlue,
-    output [9:0] count_h, count_v
+    output reg [3:0] out_vgaRed, out_vgaGreen, out_vgaBlue
     );
 
     wire H_display_on, V_display_on;
@@ -18,14 +17,12 @@ module VGA_controller(
     h_sync_generator h_sync_module(
                             .clk(clk), .reset_p(reset_p),
                             .p_clk_cp(pixel_clock_pulse),
-                            .Hsync(Hsync), .H_display_on(H_display_on),
-                            .count_h (count_h) );
+                            .Hsync(Hsync), .H_display_on(H_display_on));
 
     v_sync_generator v_sync_module(
                             .clk(clk), .reset_p(reset_p),
                             .h_sync_cp(h_sync_nedge),
-                            .Vsync(Vsync), .V_display_on(V_display_on),
-                            .count_v (count_v) );
+                            .Vsync(Vsync), .V_display_on(V_display_on));
 
     always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
@@ -34,7 +31,7 @@ module VGA_controller(
             out_vgaBlue = 0;            
         end
         else begin
-            if(out_display_on) begin
+            if(pixel_clock_pulse && out_display_on) begin
                 out_vgaRed  = in_vgaRed; 
                 out_vgaGreen = in_vgaGreen;
                 out_vgaBlue = in_vgaBlue;

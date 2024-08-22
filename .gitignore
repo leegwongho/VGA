@@ -4,7 +4,6 @@
 *.cache/
 *.hw/
 *.runs/
-*.sim/
 
 #extensions
 *.jou
