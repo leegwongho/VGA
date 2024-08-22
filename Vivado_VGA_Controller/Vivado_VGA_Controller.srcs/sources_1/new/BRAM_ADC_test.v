@@ -75,13 +75,13 @@ module BRAM_ADC_test (
         else begin
             if (write_enable_pedge) begin
                 if (x == 2'd0) begin
-                    adc_x = adc_x + 1;
+                    adc_x = adc_x - 1;
                 end
                 else if (x == 2'd1) begin
                     adc_x = adc_x;
                 end
                 else if (x == 2'd2) begin
-                    adc_x = adc_x - 1;
+                    adc_x = adc_x + 1;
                 end
 
                 if (y == 2'd0) begin
