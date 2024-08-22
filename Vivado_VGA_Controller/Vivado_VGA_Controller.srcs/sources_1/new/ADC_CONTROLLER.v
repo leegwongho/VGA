@@ -1,4 +1,4 @@
-// adc_controller x,y value  0, 1, 2  x( 0 left, 1 idle 2 right) y(0 down, 1 idle, 2 up)
+// adc_controller x,y value  0, 1, 2
 module ADC_CONTROLLER(
     input clk, reset_p,
     input vauxp6, vauxn6, vauxp15, vauxn15,
@@ -26,7 +26,7 @@ module ADC_CONTROLLER(
 
     wire eoc_out_pedge, eoc_out_nedge;
     edge_detector_n  ed1 (.clk(clk), .reset_p(reset_p), .cp(eoc_out), .p_edge(eoc_out_pedge), .n_edge(eoc_out_nedge));
-
+    
     reg [23:0] do_out_avr_x, do_out_avr_y;
 
     reg [7:0] count_x, count_y;
@@ -72,8 +72,8 @@ module ADC_CONTROLLER(
 
     always @(negedge clk, posedge reset_p) begin
         if (reset_p) begin
-            x = 1;
-            y = 1; 
+            x = 0;
+            y = 0; 
         end
         else if (eoc_out_pedge) begin
             if (adc_value_x <= VALUE_CUT_1400) begin

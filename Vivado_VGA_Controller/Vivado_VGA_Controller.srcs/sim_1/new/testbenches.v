@@ -115,27 +115,3 @@ module tb_pixel_coord_tracker ();
     end
 
 endmodule
-
-module tb_bram_ADC();
-
-    reg clk, reset_p;
-    wire Hsync, Vsync;
-    wire [3:0] V2M_Red, V2M_Green, V2M_Blue;
-
-    TOP_BRAM_ADC_module DUT(.clk(clk), .reset_p(reset_p), .Hsync(Hsync), .Vsync(Vsync),
-                            .V2M_Red(V2M_Red), .V2M_Green(V2M_Green), .V2M_Blue(V2M_Blue));
-
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
-    
-    initial begin
-        reset_p=0;
-        reset_p=1;
-        #10 reset_p=0;
-        @(posedge Vsync) $stop;
-    end
-
-
-endmodule
