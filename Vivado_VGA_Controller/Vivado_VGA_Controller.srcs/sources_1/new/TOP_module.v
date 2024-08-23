@@ -54,6 +54,24 @@ BRAM_320x240_controller BC(
 );
 
 
+imgGen_XYtoImage img_gen_module(
+    .clk (clk),
+    .reset_p (reset_p),
+    
+    .offset_x (0),
+    .offset_y (0),
+    
+    .write_enable (write_enable),
+    
+    .addr_x (gen_addr_x),
+    .addr_y (gen_addr_y),
+    
+    .vgaRed (gen_vgaRed),
+    .vgaGreen (gen_vgaGreen),
+    .vgaBlue (gen_vgaBlue)
+    );
+
+/*
 BRAM_test_generator BTG(
     .clk(clk), .reset_p(reset_p),
     .pixel_clock_pulse(pixel_clock_pulse),
@@ -63,5 +81,6 @@ BRAM_test_generator BTG(
     .write_enable(write_enable),
     .vgaRed(gen_vgaRed), .vgaGreen(gen_vgaGreen), .vgaBlue(gen_vgaBlue)
 );
+*/
 
 endmodule
