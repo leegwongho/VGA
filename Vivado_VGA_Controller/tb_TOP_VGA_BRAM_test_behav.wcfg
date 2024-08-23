@@ -3,90 +3,84 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_TOP_VGA_BRAM_test_behav.wdb" id="1">
+      <db_ref path="tb_TOP_module_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_TOP_VGA_BRAM_test" />
+            <top_module name="tb_TOP_module" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="7584980000fs"></ZoomStartTime>
-      <ZoomEndTime time="7861480001fs"></ZoomEndTime>
-      <Cursor1Time time="8284980000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="357000000001fs"></ZoomEndTime>
+      <Cursor1Time time="8500000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+      <ValueColumnWidth column_width="142"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/clk" type="logic">
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/reset_p" type="logic">
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/reset_p" type="logic">
       <obj_property name="ElementShortName">reset_p</obj_property>
       <obj_property name="ObjectShortName">reset_p</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/Hsync" type="logic">
-      <obj_property name="ElementShortName">Hsync</obj_property>
-      <obj_property name="ObjectShortName">Hsync</obj_property>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/offset_x" type="array">
+      <obj_property name="ElementShortName">offset_x[7:0]</obj_property>
+      <obj_property name="ObjectShortName">offset_x[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/Vsync" type="logic">
-      <obj_property name="ElementShortName">Vsync</obj_property>
-      <obj_property name="ObjectShortName">Vsync</obj_property>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/offset_y" type="array">
+      <obj_property name="ElementShortName">offset_y[7:0]</obj_property>
+      <obj_property name="ObjectShortName">offset_y[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/vga_cntr_module/v_sync_module/count" type="array">
-      <obj_property name="ElementShortName">count[9:0]</obj_property>
-      <obj_property name="ObjectShortName">count[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/vgaRed" type="array">
-      <obj_property name="ElementShortName">vgaRed[3:0]</obj_property>
-      <obj_property name="ObjectShortName">vgaRed[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/vgaGreen" type="array">
-      <obj_property name="ElementShortName">vgaGreen[3:0]</obj_property>
-      <obj_property name="ObjectShortName">vgaGreen[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/vgaBlue" type="array">
-      <obj_property name="ElementShortName">vgaBlue[3:0]</obj_property>
-      <obj_property name="ObjectShortName">vgaBlue[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider32">
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/pixel_clock_pulse" type="logic">
-      <obj_property name="ElementShortName">pixel_clock_pulse</obj_property>
-      <obj_property name="ObjectShortName">pixel_clock_pulse</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/display_on" type="logic">
-      <obj_property name="ElementShortName">display_on</obj_property>
-      <obj_property name="ObjectShortName">display_on</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider12">
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/BRAM_cntr_module/write_enable" type="logic">
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/write_enable" type="logic">
       <obj_property name="ElementShortName">write_enable</obj_property>
       <obj_property name="ObjectShortName">write_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/BRAM_cntr_module/addr_linear" type="array">
-      <obj_property name="ElementShortName">addr_linear[16:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_linear[16:0]</obj_property>
-      <obj_property name="Radix">OCTALRADIX</obj_property>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/addr_x" type="array">
+      <obj_property name="ElementShortName">addr_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_x[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/BRAM_cntr_module/BRAM_red/douta" type="array">
-      <obj_property name="ElementShortName">douta[3:0]</obj_property>
-      <obj_property name="ObjectShortName">douta[3:0]</obj_property>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/addr_y" type="array">
+      <obj_property name="ElementShortName">addr_y[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_y[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/vgaRed" type="array">
+      <obj_property name="ElementShortName">vgaRed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaRed[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/vgaGreen" type="array">
+      <obj_property name="ElementShortName">vgaGreen[3:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaGreen[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/vgaBlue" type="array">
+      <obj_property name="ElementShortName">vgaBlue[3:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaBlue[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/value_x" type="array">
+      <obj_property name="ElementShortName">value_x[3:0]</obj_property>
+      <obj_property name="ObjectShortName">value_x[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/value_y" type="array">
+      <obj_property name="ElementShortName">value_y[3:0]</obj_property>
+      <obj_property name="ObjectShortName">value_y[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/time_counter" type="array">
+      <obj_property name="ElementShortName">time_counter[16:0]</obj_property>
+      <obj_property name="ObjectShortName">time_counter[16:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_TOP_module/DUT/img_gen_module/generate_frame" type="logic">
+      <obj_property name="ElementShortName">generate_frame</obj_property>
+      <obj_property name="ObjectShortName">generate_frame</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider32">
+   </wvobject>
+   <wvobject type="divider" fp_name="divider12">
    </wvobject>
    <wvobject type="divider" fp_name="divider19">
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/BRAM_test_gen_module/out_addr_x" type="array">
-      <obj_property name="ElementShortName">out_addr_x[8:0]</obj_property>
-      <obj_property name="ObjectShortName">out_addr_x[8:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_TOP_VGA_BRAM_test/DUT/BRAM_test_gen_module/out_addr_y" type="array">
-      <obj_property name="ElementShortName">out_addr_y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">out_addr_y[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
