@@ -15,7 +15,7 @@ module mouse_sipo(
 
     edge_detector_n right_click_edge ( .clk(clk), .reset_p(reset_p), .cp(data_clk), .n_edge(data_clk_nedge));
 
-
+    
     assign signal_1 =  sipo[43:33];
     assign signal_2 =  sipo[32:22];
     assign signal_3 =  sipo[21:10];
