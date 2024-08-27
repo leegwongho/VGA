@@ -40,10 +40,20 @@ module cursor_graphic(
     parameter ST_DRAWCURSOR = 3'b100;
     
     reg [2:0] draw_state, draw_next_state; // 0: disabled, 1: refill background, 2: draw cursor
-    reg cursor_LUT [0:14][0:9];
+    // reg cursor_LUT [0:14][0:9];
+    reg [8:0] prev_cursor_addr_x, prev_cursor_addr_y;
     
-    // refill previous cursor graphic with background color
-    
+    // next state machine
+    always @(negedge clk or posedge reset_p) begin
+        if (reset_p) begin
+            draw_state = ST_DISABLED;
+        end
+        else begin
+            draw_state = draw_next_state;
+        end
+    end
+        
+        
     // draw cursor graphic
     always @(negedge clk or posedge reset_p) begin
         if (reset_p) begin
@@ -54,6 +64,8 @@ module cursor_graphic(
             case (draw_state)
                 ST_DISABLED: begin
                     write_enable = 0;
+                    draw_next_state = ST_REFILLBG;
+                    
                 end
                 ST_REFILLBG: begin
                     case (current_graphic_state)
@@ -76,13 +88,14 @@ module cursor_graphic(
                          GRAPHIC_DEMO_BLUE: begin rgb_red = 4'h0; rgb_green = 4'h0; rgb_blue = 4'hf; end
                          GRAPHIC_DEMO_WHITE: begin rgb_red = 4'hf; rgb_green = 4'hf; rgb_blue = 4'hf; end
                     endcase
-                    rgb_addr_x = cursor_addr_x; rgb_addr_y = cursor_addr_y;
+                    rgb_addr_x = prev_cursor_addr_x; rgb_addr_y = prev_cursor_addr_y;
                     write_enable = 1;
                     draw_next_state = ST_DRAWCURSOR;
                 end
                 ST_DRAWCURSOR: begin
                     rgb_red = 0; rgb_green = 0; rgb_blue = 0;
                     rgb_addr_x = cursor_addr_x; rgb_addr_y = cursor_addr_y;
+                    prev_cursor_addr_x = cursor_addr_x; prev_cursor_addr_y = cursor_addr_y;
                     write_enable = 1;
                     draw_next_state = ST_DISABLED;
                 end
