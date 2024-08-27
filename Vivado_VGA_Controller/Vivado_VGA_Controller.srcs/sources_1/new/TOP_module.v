@@ -43,6 +43,7 @@ pixel_coord_converter PCC(
 wire write_enable;
 wire [9:0] gen_addr_x, gen_addr_y;
 wire [3:0] gen_vgaRed, gen_vgaGreen, gen_vgaBlue;
+
 BRAM_320x240_controller BC(
     .clk(clk), .reset_p(reset_p),
     .write_enable(write_enable),
@@ -53,8 +54,26 @@ BRAM_320x240_controller BC(
     .portb_vgaRed(B2V_Red), .portb_vgaGreen(B2V_Green), .portb_vgaBlue(B2V_Blue)
 );
 
-
+/*
 imgGen_XYtoImage img_gen_module(
+    .clk (clk),
+    .reset_p (reset_p),
+    
+    .offset_x (0),
+    .offset_y (0),
+    
+    .write_enable (write_enable),
+    
+    .addr_x (gen_addr_x),
+    .addr_y (gen_addr_y),
+    
+    .vgaRed (gen_vgaRed),
+    .vgaGreen (gen_vgaGreen),
+    .vgaBlue (gen_vgaBlue)
+    );
+*/
+
+color_fsm img_gen_module(
     .clk (clk),
     .reset_p (reset_p),
     
