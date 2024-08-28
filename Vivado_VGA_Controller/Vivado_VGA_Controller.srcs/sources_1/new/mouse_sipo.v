@@ -5,6 +5,8 @@ module mouse_sipo(
     input data_clk,
     output reg data_finish_flag,
     output [10:0] signal_1, signal_2, signal_3, signal_4);
+    // output [3:0] com,
+    // output [7:0] seg_7
 
     reg [43:0] sipo;
     reg [43:0] buffer;
@@ -32,7 +34,7 @@ module mouse_sipo(
         else begin
             mouse_data <= data;
             if (data_clk_nedge) begin
-                buffer <= {buffer[42:0], mouse_data};
+                buffer <= {buffer, mouse_data};
                 count <= count + 1;
             end
 
@@ -50,6 +52,9 @@ module mouse_sipo(
         end
     end
 
+    // wire [15:0] value; 
+    // assign value = count;
+//    fnd_4digit_cntr test( .clk(clk), .reset_p(reset_p), .com(com), .value(value), .seg_7(seg_7) );
 
 
 

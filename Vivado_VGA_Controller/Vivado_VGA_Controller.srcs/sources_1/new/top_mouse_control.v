@@ -47,18 +47,17 @@ module TOP_mouse_control (
         .portb_vgaRed(B2V_Red), .portb_vgaGreen(B2V_Green), .portb_vgaBlue(B2V_Blue)
     );
 
-    BRAM_mouse_test BMT(
+    mouse_cursor_v1 BMT(
                         .clk(clk), .reset_p(reset_p),
                         .pixel_clock_pulse(pixel_clock_pulse),
                         .in_hsync(Hsync), .in_vsync(Vsync),
-                        .in_display_on(out_display_on),
+                        // .in_display_on(out_display_on),
                         .data(data),
                         .data_clk(data_clk),
                         .out_addr_x(gen_addr_x),
                         .out_addr_y(gen_addr_y),
                         .write_enable(write_enable),
-                        .vgaRed(gen_vgaRed), .vgaGreen(gen_vgaGreen), .vgaBlue(gen_vgaBlue),
-                        .com(com), .seg_7(seg_7));
+                        .o_vgaRed(gen_vgaRed), .o_vgaGreen(gen_vgaGreen), .o_vgaBlue(gen_vgaBlue));
 
 
 

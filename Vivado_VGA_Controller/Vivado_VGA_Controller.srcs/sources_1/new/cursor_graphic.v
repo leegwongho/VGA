@@ -58,6 +58,7 @@ module cursor_graphic(
     always @(negedge clk or posedge reset_p) begin
         if (reset_p) begin
             rgb_red = 0; rgb_green = 0; rgb_blue = 0;
+            draw_next_state = ST_DISABLED;
         end
         
         else begin

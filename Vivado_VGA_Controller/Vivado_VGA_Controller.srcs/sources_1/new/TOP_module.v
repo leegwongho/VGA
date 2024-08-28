@@ -1,6 +1,7 @@
 module TOP_module (
     input clk, reset_p,
-
+    input data,
+    input data_clk,
     output Hsync,Vsync,
     output [3:0] V2M_Red, V2M_Green, V2M_Blue
 );
@@ -54,6 +55,16 @@ BRAM_320x240_controller BC(
     .portb_vgaRed(B2V_Red), .portb_vgaGreen(B2V_Green), .portb_vgaBlue(B2V_Blue)
 );
 
+
+color_fsm color(
+    .clk(clk), .reset_p(reset_p),
+    .pixel_clock_pulse(pixel_clock_pulse),
+    .i_hsync(Hsync), .i_vsync(Vsync),
+    .data(data_clk), .data_clk(data_clk),
+    .o_write_enable(write_enable),
+    .addr_x(gen_addr_x), .addr_y(gen_addr_y),
+    .o_vgaRed(gen_vgaRed), .o_vgaGreen(gen_vgaGreen), .o_vgaBlue(gen_vgaBlue)
+    );
 /*
 imgGen_XYtoImage img_gen_module(
     .clk (clk),
@@ -73,22 +84,32 @@ imgGen_XYtoImage img_gen_module(
     );
 */
 
-color_fsm img_gen_module(
-    .clk (clk),
-    .reset_p (reset_p),
+    // wire [8:0] value_x, value_y;
+
+// mouse_controller_in_vga mouse_address(
+//     .clk(clk), .reset_p(reset_p),
+//     .data(data),
+//     .data_clk(data_clk),
+//     .mouse_left_click(), .mouse_right_click(),
+//     .value_x(value_x), .value_y(value_y));
+
+// color_fsm img_gen_module(
+//     .clk (clk),
+//     .reset_p (reset_p),
     
-    .offset_x (0),
-    .offset_y (0),
+//     .offset_x (0),
+//     .offset_y (0),
     
-    .write_enable (write_enable),
+//     .o_write_enable (write_enable),
     
-    .addr_x (gen_addr_x),
-    .addr_y (gen_addr_y),
-    
-    .vgaRed (gen_vgaRed),
-    .vgaGreen (gen_vgaGreen),
-    .vgaBlue (gen_vgaBlue)
-    );
+//     .addr_x (gen_addr_x),
+//     .addr_y (gen_addr_y),
+//     .cursor_addr_x(value_x), 
+//     .cursor_addr_y(value_y),
+//     .vgaRed (gen_vgaRed),
+//     .vgaGreen (gen_vgaGreen),
+//     .vgaBlue (gen_vgaBlue)
+//     );
 
 /*
 BRAM_test_generator BTG(

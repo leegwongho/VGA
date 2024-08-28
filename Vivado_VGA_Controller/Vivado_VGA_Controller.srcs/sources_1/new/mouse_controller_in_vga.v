@@ -4,8 +4,6 @@ module mouse_controller_in_vga(
     input data,
     input data_clk,
     output mouse_left_click, mouse_right_click,
-    output [3:0] com,
-    output [7:0] seg_7,
     output reg [8:0] value_x, value_y);
 
 
@@ -69,8 +67,6 @@ module mouse_controller_in_vga(
 
 
     assign value = {value_y[7:0], value_x[7:0]};
-
-    fnd_4digit_cntr test( .clk(clk), .reset_p(reset_p), .com(com), .value(value), .seg_7(seg_7) );
 
 endmodule
 

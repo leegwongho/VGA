@@ -8,13 +8,12 @@ module top_mouse_test(
     wire mouse_left_click, mouse_right_click, mouse_right_left_cursor, mouse_up_down_cursor;
     wire [7:0] mouse_move_x, mouse_move_y;
 
-    mouse_controller mouse_test(
+    mouse_controller_in_vga mouse_test(
                         .clk(clk), .reset_p(reset_p),
                         .data(data),
                         .data_clk(data_clk),
                         .mouse_left_click(mouse_left_click), .mouse_right_click(mouse_right_click), 
-                        .mouse_right_left_cursor(mouse_right_left_cursor), .mouse_up_down_cursor(mouse_up_down_cursor), 
-                        .mouse_move_x(mouse_move_x), .mouse_move_y(mouse_move_y));
+                        .value_x(mouse_move_x), .value_y(mouse_move_y));
 
     // reg [7:0] value_x, value_y;
     reg [7:0] value_x, value_y;
