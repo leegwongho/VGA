@@ -24,7 +24,7 @@ module mouse_sipo(
     assign signal_4 =  sipo[10:0];
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             sipo <= 0;
             buffer <= 0;

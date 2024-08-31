@@ -44,7 +44,7 @@ module cursor_graphic(
     reg [8:0] prev_cursor_addr_x, prev_cursor_addr_y;
     
     // next state machine
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             draw_state = ST_DISABLED;
         end
@@ -55,7 +55,7 @@ module cursor_graphic(
         
         
     // draw cursor graphic
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             rgb_red = 0; rgb_green = 0; rgb_blue = 0;
             draw_next_state = ST_DISABLED;

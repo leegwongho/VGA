@@ -16,7 +16,7 @@ module v_sync_generator(
 
 
     reg [9:0] count;
-    always @ (negedge clk, posedge reset_p) begin
+    always @ (posedge clk, posedge reset_p) begin
         if(reset_p) begin
             count = 523;
             Vsync = 1;

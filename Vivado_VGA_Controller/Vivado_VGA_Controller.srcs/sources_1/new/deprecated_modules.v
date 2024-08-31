@@ -29,7 +29,7 @@ module vga_test_red(
     reg [9:0] count_ver;
     reg count_e; 
 
-    // always @(negedge clk, posedge reset_p) begin
+    // always @(posedge clk, posedge reset_p) begin
     //     if(reset_p) begin
     //         count_hor = 0;
     //     end
@@ -43,7 +43,7 @@ module vga_test_red(
     //     end
     // end
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             count_hor = 0;
             count_ver = 0;
@@ -67,7 +67,7 @@ module vga_test_red(
     end
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if(reset_p) begin
             Hsync = 1;
             count_e = 1;
@@ -86,7 +86,7 @@ module vga_test_red(
     assign vgaGreen = 4'h0;
     assign vgaBlue = 4'h0;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if(reset_p) begin
             Vsync = 1;
             count_e = 1;
@@ -102,7 +102,7 @@ module vga_test_red(
     end
 
 
-    // always @ (negedge clk, posedge reset_p) begin
+    // always @ (posedge clk, posedge reset_p) begin
     //     if (reset_p) begin
     //         h_state = H_IDLE;
     //         v_state = V_IDLE;
@@ -159,7 +159,7 @@ module vga_test_ver_1(
 
     reg [3:0] h_state, h_state_next, v_state, v_state_next;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if(reset_p) begin
             h_state = HSYNC_IDLE;
             v_state = VSYNC_IDLE;
@@ -181,7 +181,7 @@ module vga_test_ver_1(
     reg count_e;
     reg [9:0] count_v;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             count = 0;
             count_v = 0;
@@ -200,7 +200,7 @@ module vga_test_ver_1(
         end
     end
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             h_state_next = HSYNC_IDLE;
             count_h = 0;
@@ -238,7 +238,7 @@ module vga_test_ver_1(
     end
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             v_state_next = VSYNC_IDLE;
             Vsync = 0;
@@ -274,7 +274,7 @@ module vga_test_ver_1(
         end
     end
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             vgaRed  = 0; 
             vgaGreen = 0;
@@ -309,7 +309,7 @@ module vga_test_ver_2(
 
     reg [3:0] h_state, h_state_next, v_state, v_state_next;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if(reset_p) begin
             h_state = HSYNC_ACTIVE;
             v_state = VSYNC_ACTIVE;
@@ -331,7 +331,7 @@ module vga_test_ver_2(
     reg count_e;
     reg [10:0] count_v;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             count = 0;
             count_v = 0;
@@ -350,7 +350,7 @@ module vga_test_ver_2(
 
     reg H_dispaly_data, V_dispaly_data;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             h_state_next = HSYNC_ACTIVE;
             count_h = 0;
@@ -398,7 +398,7 @@ module vga_test_ver_2(
     end
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             v_state_next = VSYNC_ACTIVE;
             Vsync = 1;
@@ -444,7 +444,7 @@ module vga_test_ver_2(
         end
     end
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             vgaRed  = 0; 
             vgaGreen = 0;
@@ -500,7 +500,7 @@ module vga_test_ver_3(
                             .Vsync(Vsync), .V_display_on(V_display_on));
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             vgaRed  = 0; 
             vgaGreen = 0;

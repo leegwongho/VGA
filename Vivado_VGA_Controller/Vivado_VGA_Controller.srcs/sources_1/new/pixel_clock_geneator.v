@@ -10,7 +10,7 @@ module pixel_clock_generator (
     localparam DIVIDER_VALUE = SYSCLK_FREQ / TARGET_FREQ;
 
     reg [6:0] count_sysclk;
-    always @ (negedge clk, posedge reset_p) begin
+    always @ (posedge clk, posedge reset_p) begin
         if (reset_p) count_sysclk = 0;
         else begin
             if (count_sysclk >= (DIVIDER_VALUE - 1) ) begin 

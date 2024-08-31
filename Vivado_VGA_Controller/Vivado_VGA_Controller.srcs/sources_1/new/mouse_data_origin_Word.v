@@ -7,7 +7,7 @@ module mouse_data_origin_Word(
 
 
 
-    always @ (negedge clk, posedge reset_p) begin
+    always @ (posedge clk, posedge reset_p) begin
         if (reset_p) begin
             mouse_left_click = 0;
             mouse_right_click = 0;

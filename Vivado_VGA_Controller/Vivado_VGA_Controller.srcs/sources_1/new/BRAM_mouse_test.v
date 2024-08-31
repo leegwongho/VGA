@@ -23,7 +23,7 @@ module mouse_cursor (
     //integer pixel_counter;
     
     // address manipulator
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             out_addr_x = 0;
             out_addr_y = 0;
@@ -43,9 +43,9 @@ module mouse_cursor (
         end
     end
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
-            write_enable = 1;
+            write_enable = 0;
         end
         else if (write_enable) begin
             if (out_addr_y >= 240) begin
@@ -77,7 +77,7 @@ module mouse_cursor (
 
     reg [2:0] count_cursor;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             cursor_flag = 0;
             count_cursor = 0;
@@ -107,7 +107,7 @@ module mouse_cursor (
     end
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if(reset_p) begin
             counter_red = 0;
             counter_green = 0;
@@ -158,9 +158,9 @@ module mouse_cursor_v1 (
     //integer pixel_counter;
     
     // address manipulator
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
-            out_addr_x = 0;
+            out_addr_x = 0;    
             out_addr_y = 0;
         end
         else begin
@@ -178,7 +178,7 @@ module mouse_cursor_v1 (
         end
     end
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             write_enable = 1;
         end
@@ -211,7 +211,7 @@ module mouse_cursor_v1 (
     reg [2:0] count_cursor;
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             cursor_flag = 0;
             count_cursor = 0;
@@ -249,13 +249,13 @@ module mouse_cursor_v1 (
 
     reg [5:0] state, next_state;
     
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) state = IDLE;
         else state = next_state;
     end
 
     // next state circuit
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             next_state = IDLE;
             vgaRed = 0;
@@ -422,7 +422,7 @@ module mouse_cursor_v1 (
 
 
 
-    // always @(negedge clk, posedge reset_p) begin
+    // always @(posedge clk, posedge reset_p) begin
     //     if(reset_p) begin
     //         counter_red = 0;
     //         counter_green = 0;

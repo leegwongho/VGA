@@ -15,7 +15,7 @@ module pixel_coordinate_tracker (
 
     reg count_1_x, count_1_y;
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             pixel_coord_x = 0;
             pixel_coord_y = 0;
@@ -64,7 +64,7 @@ module pixel_coordinate_tracker_1 (
 
     
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             pixel_coord_x = 10'h3ff;
             pixel_coord_y = 10'h3ff;
@@ -101,7 +101,7 @@ module pixel_coordinate_tracker_flag (
 
     reg hsync_count_flag, vsync_count_flag;
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             hsync_count_flag = 0;
             vsync_count_flag = 0;
@@ -123,7 +123,7 @@ module pixel_coordinate_tracker_flag (
         end
     end
 
-    always @(negedge clk , posedge reset_p) begin
+    always @(posedge clk , posedge reset_p) begin
         if (reset_p) begin
             pixel_coord_x = 0;
             pixel_coord_y = 0;

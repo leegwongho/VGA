@@ -7,7 +7,7 @@ module edge_detector_n (clk, reset_p, cp, p_edge, n_edge);
 
     reg ff_cur, ff_old;       
 
-    always @ (negedge clk, posedge reset_p) begin
+    always @ (posedge clk, posedge reset_p) begin
             if(reset_p) begin
                 ff_cur <= 0;
                 ff_old <= 0;

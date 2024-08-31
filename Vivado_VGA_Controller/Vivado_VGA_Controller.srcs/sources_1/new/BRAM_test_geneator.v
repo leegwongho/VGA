@@ -21,7 +21,7 @@ module BRAM_test_generator (
     //integer pixel_counter;
     
     // address manipulator
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             out_addr_x = 0;
             out_addr_y = 0;
@@ -42,7 +42,7 @@ module BRAM_test_generator (
         end
     end
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             write_enable = 1;
         end
@@ -56,7 +56,7 @@ module BRAM_test_generator (
         end
     end
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             counter_red = 0;
             counter_green = 0;

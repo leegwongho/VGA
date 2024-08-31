@@ -11,7 +11,7 @@ module ADC_BRAM_CONTROLLER (
 
     reg [8:0] address_x , address_y;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             address_x = 0;
             address_y = 0;

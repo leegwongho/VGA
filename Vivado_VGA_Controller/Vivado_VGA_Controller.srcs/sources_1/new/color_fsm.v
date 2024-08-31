@@ -61,7 +61,7 @@ module color_fsm(
     
 /*
     // change value per 10ms
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             time_counter = 0;
             value_x = 0;
@@ -87,7 +87,7 @@ module color_fsm(
 */
 
     // Every 10ms, sweep frame by address;
-    // always @(negedge clk or posedge reset_p) begin
+    // always @(posedge clk or posedge reset_p) begin
     //     if (reset_p) begin
     //         generate_frame = 0;
     //         addr_x = 0;
@@ -120,13 +120,13 @@ module color_fsm(
 
 
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) state = IDLE;
         else state = next_state;
     end
 
     // next state circuit
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             next_state = IDLE;
             vgaRed = 0;

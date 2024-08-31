@@ -33,7 +33,7 @@ module imgGen_XYtoImage(
     reg generate_frame;
     
     // change value per 10ms
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             time_counter = 0;
             value_x = 0;
@@ -61,7 +61,7 @@ module imgGen_XYtoImage(
     // Every 10ms, sweep frame by address
     reg generate_frame;
     assign write_enable = generate_frame;
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             generate_frame = 0;
             addr_x = 0;
@@ -86,7 +86,7 @@ module imgGen_XYtoImage(
     end
     
     // generate image using value and address
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             vgaRed = 0;
             vgaGreen = 0;

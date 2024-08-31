@@ -20,7 +20,7 @@ module BRAM_ADC_test (
     //integer pixel_counter;
     
     // address manipulator
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             out_addr_x = 0;
             out_addr_y = 0;
@@ -41,7 +41,7 @@ module BRAM_ADC_test (
         end
     end
 
-    always @(negedge clk or posedge reset_p) begin
+    always @(posedge clk or posedge reset_p) begin
         if (reset_p) begin
             write_enable = 1;
         end
@@ -67,7 +67,7 @@ module BRAM_ADC_test (
 
     reg [8:0] adc_x, adc_y;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             adc_x = 9'd160;
             adc_y = 9'd120;
@@ -110,7 +110,7 @@ module BRAM_ADC_test (
 
     reg [2:0] count_cursor;
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             cursor_flag = 0;
             count_cursor = 0;
@@ -153,7 +153,7 @@ module BRAM_ADC_test (
     end
 
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if(reset_p) begin
             counter_red = 0;
             counter_green = 0;

@@ -27,7 +27,7 @@ module VGA_controller(
                             .Vsync(Vsync), .V_display_on(V_display_on),
                             .count_v (count_v) );
 
-    always @(negedge clk, posedge reset_p) begin
+    always @(posedge clk, posedge reset_p) begin
         if (reset_p) begin
             out_vgaRed  = 0; 
             out_vgaGreen = 0;
