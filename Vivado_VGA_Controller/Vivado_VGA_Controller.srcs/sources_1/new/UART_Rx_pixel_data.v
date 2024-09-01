@@ -12,14 +12,14 @@
 module UART_Rx_pixel_data_addr_and_rgb(
     input clk, reset_p,
     input uart_rx,
-    output write_enable,
+    output reg write_enable,
     output [9:0] pixel_addr_x, pixel_addr_y,
     output [3:0] pixel_red, pixel_green, pixel_blue
     );
     
     wire [7:0] byte_out;
     wire rx_busy;
-    UART_rx_byte(
+    UART_rx_byte #(.BAUDRATE(115200)) module_UART_rx_byte(
         .clk (clk),
         .reset_p (reset_p),
         
@@ -44,14 +44,6 @@ module UART_Rx_pixel_data_addr_and_rgb(
         byte_count_overflow // nedge
     );
     
-    parameter ST_IDLE = 2'b01;
-    parameter ST_BYTE_DATA = 2'b10;
-    reg [1:0] state, next_state;
-    always @(posedge clk or posedge reset_p) begin
-        if (reset_p) state = ST_IDLE;
-        else state = next_state;
-    end
-    
     reg [1:0] byte_count;
     reg [7:0] pixel_buffer [0:3], pixel_output [0:3];
     always @(posedge clk or posedge reset_p) begin
@@ -60,6 +52,7 @@ module UART_Rx_pixel_data_addr_and_rgb(
             pixel_buffer[1] = 0;
             pixel_buffer[2] = 0;
             pixel_buffer[3] = 0;
+            byte_count = 0;
         end
         else begin
             if (rx_busy_nedge) begin
@@ -90,10 +83,10 @@ module UART_Rx_pixel_data_addr_and_rgb(
         end
     end
     
-    assign pixel_addr_x = {
-    assign pixel_addr_y =
-    assign pixel_red =
-    assign pixel_green =
-    assign pixel_blue = 
+    assign pixel_addr_x = {pixel_output[1][1:0], pixel_output[0][7:0]};
+    assign pixel_addr_y = {pixel_output[2][3:0], pixel_output[1][7:2]};
+    assign pixel_red = pixel_output[3][7:4];
+    assign pixel_green = pixel_output[3][3:0];
+    assign pixel_blue = pixel_output[2][7:4];
     
 endmodule
