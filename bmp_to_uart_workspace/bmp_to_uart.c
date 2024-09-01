@@ -2,18 +2,21 @@
 #include <stdio.h>
 #include <Windows.h>
 
-#define RESOLUTION_WIDTH 640
-#define RESOLUTION_HEIGHT 480
-
+// serial port related handlers
 HANDLE COM_handler;
 DCB COM_dcb = {0};
 COMMTIMEOUTS COM_timeout = {0};
 
+// FILE handler
 FILE *input_bmp_ptr;
 
+// image related global variable
+uint32_t image_width;                       // store image width pixel num
+uint32_t image_height;                      // store image height pixel num
 
+// function prototypes
 void uart_print_error_msg ();
-int uart_init ();
+int uart_init (char* COM_name);
 int check_bmp_format ();
 
 /*
@@ -36,8 +39,8 @@ int main (int argc, char* argv[])
         return 1;
     }
 
-    /////////////////////////////
-    // Build payload and send
+    ////////////////////////////
+    // Build payload and send //
     ////////////////////////////
 
     // Save payload (pixel information) starting position offset
@@ -47,10 +50,10 @@ int main (int argc, char* argv[])
 
     uint8_t send_buffer[4];
     uint8_t RGB_buffer[3];
-    for (uint16_t pixel_y=0; pixel_y<RESOLUTION_HEIGHT; pixel_y++)
+    for (uint16_t pixel_y=0; pixel_y<image_height; pixel_y++)
     {
-        fseek(input_bmp_ptr, (offset_payload + (RESOLUTION_WIDTH * (RESOLUTION_HEIGHT - pixel_y - 1) * 3)), SEEK_SET);
-        for (uint16_t pixel_x=0; pixel_x<RESOLUTION_WIDTH; pixel_x++)
+        fseek(input_bmp_ptr, (offset_payload + (image_width * (image_height - pixel_y - 1) * 3)), SEEK_SET);
+        for (uint16_t pixel_x=0; pixel_x<image_width; pixel_x++)
         {
             // read rgb value (1 byte per color, in Blue Green Red order) 
             fread( (void *) RGB_buffer, 1, 3, input_bmp_ptr);
@@ -108,7 +111,7 @@ int uart_init (char* COM_name)
         uart_print_error_msg ();
         return 1;
     }
-    COM_dcb.BaudRate = CBR_9600;
+    COM_dcb.BaudRate = CBR_115200;
     COM_dcb.ByteSize = 8;
     COM_dcb.StopBits = ONESTOPBIT;
     COM_dcb.Parity = NOPARITY;
@@ -166,16 +169,10 @@ int check_bmp_format ()
     }
 
     // Check if the image is 640 x 480 resolution
-    uint32_t image_width;                       // store image width pixel num
-    uint32_t image_height;                      // store image height pixel num
+    // variable declaration is global
     fseek(input_bmp_ptr, 0x12, SEEK_SET);       // set file pointer to position offset 0x12
     fread( (void *) &image_width, 4, 1, input_bmp_ptr);    // 0x12: image width
     fread( (void *) &image_height, 4, 1, input_bmp_ptr);   // 0x16: image height
-    if ( (image_width != RESOLUTION_WIDTH) || (image_height != RESOLUTION_HEIGHT) )
-    {
-        printf("ERROR: BMP image is not %d x %d resolution\r\n", RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
-        return 1;
-    }
 
     // Check if the image is 24bit BMP
     uint16_t image_bitdepth;                        // store image bit depth
