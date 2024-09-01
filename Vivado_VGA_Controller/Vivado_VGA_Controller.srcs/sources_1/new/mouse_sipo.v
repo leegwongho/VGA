@@ -20,7 +20,7 @@ module mouse_sipo(
     
     assign signal_1 =  sipo[43:33];
     assign signal_2 =  sipo[32:22];
-    assign signal_3 =  sipo[21:10];
+    assign signal_3 =  sipo[21:11];
     assign signal_4 =  sipo[10:0];
 
 
@@ -34,7 +34,7 @@ module mouse_sipo(
         else begin
             mouse_data <= data;
             if (data_clk_nedge) begin
-                buffer <= {buffer, mouse_data};
+                buffer <= {buffer[42:0], mouse_data};
                 count <= count + 1;
             end
 
