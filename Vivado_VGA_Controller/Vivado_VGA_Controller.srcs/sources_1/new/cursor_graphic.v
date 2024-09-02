@@ -1,106 +1,47 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2024/08/26 17:46:23
-// Design Name: 
-// Module Name: cursor_graphic
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
 module cursor_graphic(
-    input clk, reset_p,
-    input [4:0] current_graphic_state,
-    input [8:0] cursor_addr_x, cursor_addr_y,
-    output reg write_enable,
-    output reg rgb_addr_x, rgb_addr_y,
-    output reg rgb_red, rgb_green, rgb_blue
+    input clk,
+    input reset_p,
+    input [3:0] i_bram_r,i_bram_g,i_bram_b,
+    input mouse_left_click,
+    input [9:0] pixel_addr_x, pixel_addr_y,
+    input [9:0] cursor_addr_x, cursor_addr_y,
+    output reg [3:0] o_vga_r, o_vga_g, o_vga_b);
+
+    function [11:0]bit_to_12bit;
+        input bit;
+        begin
+            bit_to_12bit = {12{bit}};
+        end
+        
+    endfunction
+
+
+    wire [1:0] lut_out;
+    wire signed [10:0] temp_x, temp_y; 
+    cursor_graphic_ROM cursor_graphic_ROM1(
+                        .a( { ((temp_y >= 0) ? temp_y[3:0] : 4'b0) , ((temp_x >= 0) ? temp_x[2:0] : 3'b0) }), 
+                        .clk(clk), 
+                        .qspo(lut_out)
     );
-    
-    parameter GRAPHIC_DEMO_IDLE  = 5'b00001;
-    parameter GRAPHIC_DEMO_RED   = 5'b00010;
-    parameter GRAPHIC_DEMO_GREEN = 5'b00100;
-    parameter GRAPHIC_DEMO_BLUE  = 5'b01000;
-    parameter GRAPHIC_DEMO_WHITE = 5'b10000;
-    
-    parameter ST_DISABLED = 3'b001;
-    parameter ST_REFILLBG = 3'b010;
-    parameter ST_DRAWCURSOR = 3'b100;
-    
-    reg [2:0] draw_state, draw_next_state; // 0: disabled, 1: refill background, 2: draw cursor
-    // reg cursor_LUT [0:14][0:9];
-    reg [8:0] prev_cursor_addr_x, prev_cursor_addr_y;
-    
-    // next state machine
-    always @(posedge clk or posedge reset_p) begin
-        if (reset_p) begin
-            draw_state = ST_DISABLED;
-        end
-        else begin
-            draw_state = draw_next_state;
-        end
+
+    localparam LUT_MAX_ADDR_X = 6 ;
+    localparam LUT_MAX_ADDR_Y = 10 ;
+
+    assign temp_x = pixel_addr_x - cursor_addr_x;
+    assign temp_y = pixel_addr_y - cursor_addr_y;
+
+    always @(*) begin
+        if ( (temp_x < 0 || temp_x >= LUT_MAX_ADDR_X) || (temp_y < 0 || temp_y >= LUT_MAX_ADDR_Y) ) {o_vga_r, o_vga_g, o_vga_b} = {i_bram_r,i_bram_g,i_bram_b};
+        else if (lut_out == 2'b00) {o_vga_r, o_vga_g, o_vga_b} = {i_bram_r,i_bram_g,i_bram_b};
+        else if (lut_out == 2'b01) {o_vga_r, o_vga_g, o_vga_b} = {4'hc, 4'hc, 4'hc};
+        else if (lut_out == 2'b10) {o_vga_r, o_vga_g, o_vga_b} = {4'hf, 4'hf, 4'hf};
+        else if (lut_out == 2'b11) {o_vga_r, o_vga_g, o_vga_b} = {4'h0, 4'h0, 4'h0};
+        else {o_vga_r, o_vga_g, o_vga_b} = 0;
     end
-        
-        
-    // draw cursor graphic
-    always @(posedge clk or posedge reset_p) begin
-        if (reset_p) begin
-            rgb_red = 0; rgb_green = 0; rgb_blue = 0;
-            draw_next_state = ST_DISABLED;
-        end
-        
-        else begin
-            case (draw_state)
-                ST_DISABLED: begin
-                    write_enable = 0;
-                    draw_next_state = ST_REFILLBG;
-                    
-                end
-                ST_REFILLBG: begin
-                    case (current_graphic_state)
-                         GRAPHIC_DEMO_IDLE: begin
-                            if (cursor_addr_x < 160 && cursor_addr_y < 120) begin
-                                rgb_red = 4'hf; rgb_green = 4'h0; rgb_blue = 4'h0;
-                            end
-                            else if (cursor_addr_x >= 160 && cursor_addr_y < 120) begin
-                                rgb_red = 4'h0; rgb_green = 4'h0; rgb_blue = 4'hf;
-                            end
-                            else if (cursor_addr_x <= 160 && cursor_addr_y >= 120) begin
-                                rgb_red = 4'h0; rgb_green = 4'hf; rgb_blue = 4'h0;
-                            end
-                            else begin
-                                rgb_red = 4'hf; rgb_green = 4'hf; rgb_blue = 4'hf;
-                            end
-                         end
-                         GRAPHIC_DEMO_RED: begin rgb_red = 4'hf; rgb_green = 4'h0; rgb_blue = 4'h0; end
-                         GRAPHIC_DEMO_GREEN: begin rgb_red = 4'h0; rgb_green = 4'hf; rgb_blue = 4'h0; end
-                         GRAPHIC_DEMO_BLUE: begin rgb_red = 4'h0; rgb_green = 4'h0; rgb_blue = 4'hf; end
-                         GRAPHIC_DEMO_WHITE: begin rgb_red = 4'hf; rgb_green = 4'hf; rgb_blue = 4'hf; end
-                    endcase
-                    rgb_addr_x = prev_cursor_addr_x; rgb_addr_y = prev_cursor_addr_y;
-                    write_enable = 1;
-                    draw_next_state = ST_DRAWCURSOR;
-                end
-                ST_DRAWCURSOR: begin
-                    rgb_red = 0; rgb_green = 0; rgb_blue = 0;
-                    rgb_addr_x = cursor_addr_x; rgb_addr_y = cursor_addr_y;
-                    prev_cursor_addr_x = cursor_addr_x; prev_cursor_addr_y = cursor_addr_y;
-                    write_enable = 1;
-                    draw_next_state = ST_DISABLED;
-                end
-            endcase
-        end
-    end
+
+//{i_bram_r,i_bram_g,i_bram_b};                                                      
+//mouse_left_click ? bit_to_12bit(~pixel_bit_color) : bit_to_12bit(pixel_bit_color); 
+//mouse_left_click ? bit_to_12bit(~pixel_bit_color) : bit_to_12bit(pixel_bit_color); 
+
+
 endmodule

@@ -26,13 +26,5 @@ module mouse_data_origin_Word(
             mouse_move_y            = {signal_3[2], signal_3[3], signal_3[4], signal_3[5], signal_3[6], signal_3[7], signal_3[8], signal_3[9]};
         end
     end
-
-
-    // assign mouse_left_click             = signal_1[9];
-    // assign mouse_right_click            = signal_1[8];
-    // assign mouse_right_left_cursor      = signal_1[5];
-    // assign mouse_up_down_cursor         = signal_1[4];
-    // assign mouse_move_x                 = signal_2[9:2];
-    // assign mouse_move_y                 = signal_3[9:2];
-
+    
 endmodule

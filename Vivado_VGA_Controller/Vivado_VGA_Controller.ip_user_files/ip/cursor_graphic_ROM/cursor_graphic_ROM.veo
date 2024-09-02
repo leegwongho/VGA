@@ -57,7 +57,7 @@
 cursor_graphic_ROM your_instance_name (
   .a(a),        // input wire [6 : 0] a
   .clk(clk),    // input wire clk
-  .qspo(qspo)  // output wire [0 : 0] qspo
+  .qspo(qspo)  // output wire [1 : 0] qspo
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

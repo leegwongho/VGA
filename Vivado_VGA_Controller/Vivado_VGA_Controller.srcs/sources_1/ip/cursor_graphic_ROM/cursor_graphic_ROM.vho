@@ -56,7 +56,7 @@ COMPONENT cursor_graphic_ROM
   PORT (
     a : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
     clk : IN STD_LOGIC;
-    qspo : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
+    qspo : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

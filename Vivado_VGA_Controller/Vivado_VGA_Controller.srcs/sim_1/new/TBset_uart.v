@@ -1,5 +1,44 @@
 `timescale 1ns / 1ps
 
+module tb_cursor_graphic ();
+    
+    reg clk, reset_p, mouse_left_click;
+    reg [3:0] i_bram_r,i_bram_g,i_bram_b;
+    reg [9:0] pixel_addr_x, pixel_addr_y, cursor_addr_x, cursor_addr_y;
+    wire [3:0] o_vga_r, o_vga_g, o_vga_b;
+    cursor_graphic DUT(
+        clk,
+        reset_p,
+        i_bram_r,i_bram_g,i_bram_b,
+        mouse_left_click,
+        pixel_addr_x, pixel_addr_y,
+        cursor_addr_x, cursor_addr_y,
+        o_vga_r, o_vga_g, o_vga_b);
+        
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+    
+    initial begin
+        reset_p = 0;
+        reset_p = 1;
+        #10 reset_p = 0;
+    end
+    
+    initial begin
+        mouse_left_click = 0;
+        i_bram_r = 1; i_bram_g = 2; i_bram_b = 3;
+        pixel_addr_x = 10'd131;
+        cursor_addr_x = 10'd130;
+        pixel_addr_y = 10'd102;
+        cursor_addr_y = 10'd100;
+        #100 $stop;
+    end
+        
+endmodule
+
+
 module tb_uart_rx_pixel_data();
     
     reg clk, reset_p;
