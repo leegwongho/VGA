@@ -21,13 +21,13 @@ module TOP_image_and_mouse(
     
     wire out_display_on;
     wire [3:0] B2V_Red, B2V_Green, B2V_Blue;
-    wire [3:0] B2V_Red_withmouse, B2V_Green_withmouse, B2V_Blue_withmouse;
     wire [9:0] pixel_coord_x, pixel_coord_y;
-    
+    wire [3:0] cursor_image_r,cursor_image_g, cursor_image_b;
+
     VGA_controller VC(
         .clk(clk), .reset_p(reset_p),
         .pixel_clock_pulse(pixel_clock_pulse),
-        .in_vgaRed(B2V_Red_withmouse), .in_vgaGreen(B2V_Green_withmouse), .in_vgaBlue(B2V_Blue_withmouse),
+        .in_vgaRed(cursor_image_r), .in_vgaGreen(cursor_image_g), .in_vgaBlue(cursor_image_b),
         .Hsync(Hsync), .Vsync(Vsync), .out_display_on(out_display_on),
         .out_vgaRed(V2M_Red), .out_vgaGreen(V2M_Green), .out_vgaBlue(V2M_Blue),
         .count_h (pixel_coord_x),
@@ -84,15 +84,16 @@ module TOP_image_and_mouse(
                                     .mouse_left_click(mouse_left_click), .mouse_right_click(mouse_right_click),
                                     .value_x(value_x), .value_y(value_y));
     
-    assign {B2V_Red_withmouse, B2V_Green_withmouse, B2V_Blue_withmouse}  = ( (pixel_coord_x == value_x ||
-                                         pixel_coord_x == value_x + 1 ||
-                                         pixel_coord_x == value_x + 2 ||
-                                         pixel_coord_x == value_x + 3)
-                                && (pixel_coord_y == value_y ||
-                                        pixel_coord_y == value_y + 1 ||
-                                        pixel_coord_y == value_y + 2 ||
-                                        pixel_coord_y == value_y + 3)
-                               ) 
-                               ? {4'hf, 4'h0, 4'h0} : {B2V_Red, B2V_Green, B2V_Blue};
+
+
+    cursor_graphic dateadaf(
+    .clk(clk),
+    .reset_p(reset_p),
+    .i_bram_r(B2V_Red), .i_bram_g(B2V_Green), .i_bram_b(B2V_Blue),
+    .pixel_addr_x({1'b0,pixel_coord_x}), .pixel_addr_y({1'b0 , pixel_coord_y}),
+    .cursor_addr_x({1'b0, value_x}), .cursor_addr_y({1'b0, value_y}), .mouse_left_click(mouse_left_click),
+    .o_vga_r(cursor_image_r), .o_vga_g(cursor_image_g), .o_vga_b(cursor_image_b));
 
 endmodule
+
+

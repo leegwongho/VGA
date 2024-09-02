@@ -45,9 +45,8 @@
 -- PART OF THIS FILE AT ALL TIMES.
 -- 
 -- DO NOT MODIFY THIS FILE.
-
 -- IP VLNV: xilinx.com:ip:blk_mem_gen:8.4
--- IP Revision: 4
+-- IP Revision: 5
 
 -- The following code must appear in the VHDL architecture header.
 
@@ -60,7 +59,7 @@ COMPONENT BRAM_4bit_512x240
     dina : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     clkb : IN STD_LOGIC;
     addrb : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
-    doutb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    doutb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -84,4 +83,6 @@ your_instance_name : BRAM_4bit_512x240
 -- You must compile the wrapper file BRAM_4bit_512x240.vhd when simulating
 -- the core, BRAM_4bit_512x240. When compiling the wrapper file, be sure to
 -- reference the VHDL simulation library.
+
+
 

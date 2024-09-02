@@ -68,8 +68,8 @@ module mouse_controller_in_vga(
         end
     end
     
-    assign value_x = coord_buffer_x[12:3];
-    assign value_y = coord_buffer_y[12:3];
+    assign value_x = coord_buffer_x[10:1];
+    assign value_y = coord_buffer_y[10:1];
 
 endmodule
 
