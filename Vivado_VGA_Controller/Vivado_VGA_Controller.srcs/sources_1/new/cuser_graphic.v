@@ -28,19 +28,20 @@ module cursor_graphic(
 
 
 
-    wire signed [10:0] temp_x, temp_y; 
+    reg signed [10:0] temp_x, temp_y; 
 
-    assign temp_x = pixel_addr_x - cursor_addr_x;
-    assign temp_y = pixel_addr_y - cursor_addr_y;
+
+    always @(*) begin
+        temp_x = pixel_addr_x - cursor_addr_x;
+        temp_y = pixel_addr_y - cursor_addr_y;
+    end
+
+
 
     assign {o_vga_r, o_vga_g,  o_vga_b} =  (temp_x >= LUT_MAX_ADDR_X) && (temp_x < 0) ? {i_bram_r,i_bram_g,i_bram_b}:
                                             (mouse_left_click ?  ~bit_to_12bit(lut_out) : bit_to_12bit(lut_out))  ; 
                                        
     // 1 w, 0 b
-
-
-
-
 
 
 

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module cursor_graphic(
+module cursor_graphic_1(
     input clk, reset_p,
     input [4:0] current_graphic_state,
     input [8:0] cursor_addr_x, cursor_addr_y,
