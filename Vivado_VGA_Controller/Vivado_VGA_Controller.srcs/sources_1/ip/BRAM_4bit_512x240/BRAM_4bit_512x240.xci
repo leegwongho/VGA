@@ -4,7 +4,11 @@
     "xci_name": "BRAM_4bit_512x240",
     "component_reference": "xilinx.com:ip:blk_mem_gen:8.4",
     "ip_revision": "5",
+<<<<<<< Updated upstream
     "gen_directory": ".",
+=======
+    "gen_directory": "../../../../Vivado_VGA_Controller.gen/sources_1/ip/BRAM_4bit_512x240",
+>>>>>>> Stashed changes
     "parameters": {
       "component_parameters": {
         "Component_Name": [ { "value": "BRAM_4bit_512x240", "resolve_type": "user", "usage": "all" } ],
@@ -176,7 +180,11 @@
         "IPCONTEXT": [ { "value": "IP_Flow" } ],
         "IPREVISION": [ { "value": "5" } ],
         "MANAGED": [ { "value": "TRUE" } ],
+<<<<<<< Updated upstream
         "OUTPUTDIR": [ { "value": "." } ],
+=======
+        "OUTPUTDIR": [ { "value": "../../../../Vivado_VGA_Controller.gen/sources_1/ip/BRAM_4bit_512x240" } ],
+>>>>>>> Stashed changes
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "." } ],
         "SWVERSION": [ { "value": "2022.2" } ],
