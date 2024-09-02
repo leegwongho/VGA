@@ -1,7 +1,10 @@
 onbreak {quit -f}
 onerror {quit -f}
 
-vsim -t 1ps -lib xil_defaultlib cursor_graphic_ROM_opt
+vsim  -lib xil_defaultlib cursor_graphic_ROM_opt
+
+set NumericStdNoWarnings 1
+set StdArithNoWarnings 1
 
 do {wave.do}
 
@@ -11,6 +14,6 @@ view signals
 
 do {cursor_graphic_ROM.udo}
 
-run -all
+run 1000ns
 
 quit -force

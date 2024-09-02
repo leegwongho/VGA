@@ -61,7 +61,7 @@ module cursor_graphic_ROM (
 
 input wire [6 : 0] a;
 input wire clk;
-output wire [0 : 0] qspo;
+output wire [1 : 0] qspo;
 
   dist_mem_gen_v8_0_13 #(
     .C_FAMILY("artix7"),
@@ -94,11 +94,11 @@ output wire [0 : 0] qspo;
     .C_REG_A_D_INPUTS(1),
     .C_REG_DPRA_INPUT(0),
     .C_SYNC_ENABLE(1),
-    .C_WIDTH(1),
+    .C_WIDTH(2),
     .C_PARSER_TYPE(1)
   ) inst (
     .a(a),
-    .d(1'B0),
+    .d(2'B0),
     .dpra(7'B0),
     .clk(clk),
     .we(1'D0),

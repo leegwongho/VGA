@@ -45,7 +45,6 @@
 -- PART OF THIS FILE AT ALL TIMES.
 -- 
 -- DO NOT MODIFY THIS FILE.
-
 -- IP VLNV: xilinx.com:ip:dist_mem_gen:8.0
 -- IP Revision: 13
 
@@ -56,7 +55,7 @@ COMPONENT cursor_graphic_ROM
   PORT (
     a : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
     clk : IN STD_LOGIC;
-    qspo : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
+    qspo : OUT STD_LOGIC_VECTOR(1 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -76,4 +75,6 @@ your_instance_name : cursor_graphic_ROM
 -- You must compile the wrapper file cursor_graphic_ROM.vhd when simulating
 -- the core, cursor_graphic_ROM. When compiling the wrapper file, be sure to
 -- reference the VHDL simulation library.
+
+
 
