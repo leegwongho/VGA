@@ -1,6 +1,6 @@
-#include <stdint.h>
-#include <stdio.h>
-#include <Windows.h>
+#include <stdint.h>     // for using bit-defined types (ex: uint8_t)
+#include <stdio.h>      // for using printf
+#include <Windows.h>    // for using serial comm in Windows
 
 // serial port related handlers
 HANDLE COM_handler;
@@ -20,14 +20,15 @@ int uart_init (char* COM_name);
 int check_bmp_format ();
 
 /*
- * Fisrt argument: COM port name
- * Second argument: bmp image location
+ * Command-line Fisrt argument: COM port name (ex: COM3)
+ * Command-line Second argument: bmp image location (ex: ./sample.bmp)
+ * 
  * Payload information:
  *      4 bytes of UART TX per pixel:
  *          pixel_x[7:0]
  *          {pixel_y[5:0], pixel_x[9:8]}
- *          {vgaBlue[3:0], pixel_y[9:6]}
- *          {vgaRed[3:0], vgaGreen[3:0]}
+ *          {pixel_blue[3:0], pixel_y[9:6]}
+ *          {pixel_red[3:0], pixel_green[3:0]}
  */
 int main (int argc, char* argv[])
 {
@@ -52,6 +53,7 @@ int main (int argc, char* argv[])
     uint8_t RGB_buffer[3];
     for (uint16_t pixel_y=0; pixel_y<image_height; pixel_y++)
     {
+        // note: BMP file starts from left-bottom corner
         fseek(input_bmp_ptr, (offset_payload + (image_width * (image_height - pixel_y - 1) * 3)), SEEK_SET);
         for (uint16_t pixel_x=0; pixel_x<image_width; pixel_x++)
         {
@@ -72,11 +74,12 @@ int main (int argc, char* argv[])
             long unsigned int actual_tx_byte;
             if ( !WriteFile(COM_handler, send_buffer, 4, &actual_tx_byte, NULL) )
             {
+                printf("Error: COM TX failed");
                 return 1;
             }
             if (actual_tx_byte != 4)
             {
-                printf("Wrong number of bytes sent\r\n");
+                printf("Error: Wrong number of bytes sent\r\n");
             }
         }
     }
