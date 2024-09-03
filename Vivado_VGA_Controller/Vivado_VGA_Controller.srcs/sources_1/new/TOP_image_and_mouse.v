@@ -2,8 +2,8 @@
 
 module TOP_image_and_mouse(
     input clk, reset_p,
-    input data,
-    input data_clk,
+    inout data,
+    inout data_clk,
     input RsRx,
     output Hsync, Vsync,
     output [3:0] V2M_Red, V2M_Green, V2M_Blue,
@@ -87,11 +87,16 @@ module TOP_image_and_mouse(
     assign {B2V_Red_withmouse, B2V_Green_withmouse, B2V_Blue_withmouse}  = ( (pixel_coord_x == value_x ||
                                          pixel_coord_x == value_x + 1 ||
                                          pixel_coord_x == value_x + 2 ||
-                                         pixel_coord_x == value_x + 3)
+                                         pixel_coord_x == value_x + 3 ||
+                                         pixel_coord_x == value_x + 5 ||
+                                         pixel_coord_x == value_x + 6)
                                 && (pixel_coord_y == value_y ||
                                         pixel_coord_y == value_y + 1 ||
                                         pixel_coord_y == value_y + 2 ||
-                                        pixel_coord_y == value_y + 3)
+                                        pixel_coord_y == value_y + 3 ||
+                                        pixel_coord_y == value_y + 4 ||
+                                        pixel_coord_y == value_y + 5 ||
+                                        pixel_coord_y == value_y + 6)
                                ) 
                                ? {4'hf, 4'h0, 4'h0} : {B2V_Red, B2V_Green, B2V_Blue};
 

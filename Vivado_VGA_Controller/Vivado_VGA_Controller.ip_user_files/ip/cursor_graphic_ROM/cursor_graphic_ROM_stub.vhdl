@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Mon Sep  2 19:42:07 2024
+-- Date        : Mon Sep  2 19:42:06 2024
 -- Host        : DESKTOP-TPO10A8 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/cursor_graphic_ROM/cursor_graphic_ROM_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top cursor_graphic_ROM -prefix
+--               cursor_graphic_ROM_ cursor_graphic_ROM_stub.vhdl
 -- Design      : cursor_graphic_ROM
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35tcpg236-1
