@@ -2,7 +2,7 @@
 
 module mouse_controller_in_vga(
     input clk, reset_p,
-    inout data,
+    input data,
     input data_clk,
     output mouse_left_click, mouse_right_click,
     output [9:0] value_x, value_y);
@@ -10,7 +10,7 @@ module mouse_controller_in_vga(
     parameter MAX_ADDR_X = 320;
     parameter MAX_ADDR_Y = 240;
 
-    wire data_in_busy_flag;
+    wire data_finish_flag;
 
     wire [10:0] signal_1, signal_2, signal_3;
     wire signed [7:0] mouse_move_x, mouse_move_y;
@@ -19,10 +19,11 @@ module mouse_controller_in_vga(
     wire mouse_right_left_cursor, mouse_up_down_cursor;
     mouse_sipo ps2_mouse(
                         .clk(clk), .reset_p(reset_p),
-                        .data(data_in),
+                        .data(data),
                         .data_clk(data_clk),
-                        .data_in_busy_flag(data_in_busy_flag),
+                        .data_finish_flag(data_finish_flag),
                         .signal_1(signal_1), .signal_2(signal_2), .signal_3(signal_3));
+
 
     mouse_data_origin_Word valid_data_div(
                                 .clk(clk), .reset_p(reset_p),
@@ -67,8 +68,7 @@ module mouse_controller_in_vga(
         end
     end
     
-    assign value_x = coord_buffer_x[10:1];
-    assign value_y = coord_buffer_y[10:1];
+    assign value_x = coord_buffer_x[9:0];
+    assign value_y = coord_buffer_y[9:0];
 
 endmodule
-
