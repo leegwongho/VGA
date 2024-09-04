@@ -1,7 +1,9 @@
 # VGA 그래픽 출력기
 ## 간단한 VGA 인터페이스를 이용한 이미지 출력기와 마우스 입력을 통한 커서
 
-![VGA Controller Overview](image/VGACont_overview.png)
+<p align="center">
+<img src="image/VGACont_overview.png" width="80%" alt="overview">
+</p>
 
 ### 모듈 설명
 + VGA 인터페이스
