@@ -1,6 +1,13 @@
 // Took reference from https://m.blog.naver.com/nortul/221968205374
 // and https://ds.opdenbrouw.nl/micprg/pdf/serial-win.pdf
-
+/*
+ * Sends input string to UART 
+ *
+ * Two command-line arguments:
+ * First argument: COM port name (ex: COM4)
+ * Second arument: string to send (ex: "Hello World")
+ * Example usage: test_uart.exe COM4 "Hello World"
+ */
 #include <Windows.h>
 #include <stdio.h>
 

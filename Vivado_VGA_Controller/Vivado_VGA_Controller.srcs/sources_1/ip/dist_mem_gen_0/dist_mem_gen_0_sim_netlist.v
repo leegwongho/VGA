@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Mon Sep  2 19:47:43 2024
+// Date        : Thu Sep  5 18:57:13 2024
 // Host        : DESKTOP-TPO10A8 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top dist_mem_gen_0 -prefix
-//               dist_mem_gen_0_ dist_mem_gen_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               D:/lany_workspace/Git/vga_con/Vivado_VGA_Controller/Vivado_VGA_Controller.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_sim_netlist.v
 // Design      : dist_mem_gen_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -91,7 +91,7 @@ endmodule
 (* C_MEM_INIT_FILE = "dist_mem_gen_0.mif" *) (* C_MEM_TYPE = "0" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
 (* C_READ_MIF = "1" *) (* C_REG_A_D_INPUTS = "1" *) (* C_REG_DPRA_INPUT = "0" *) 
-(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "1" *) 
+(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "1" *) (* ORIG_REF_NAME = "dist_mem_gen_v8_0_13" *) 
 module dist_mem_gen_0_dist_mem_gen_v8_0_13
    (a,
     d,
@@ -144,6 +144,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13
         .qspo(qspo));
 endmodule
 
+(* ORIG_REF_NAME = "dist_mem_gen_v8_0_13_synth" *) 
 module dist_mem_gen_0_dist_mem_gen_v8_0_13_synth
    (qspo,
     a,
@@ -162,6 +163,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13_synth
         .qspo(qspo));
 endmodule
 
+(* ORIG_REF_NAME = "rom" *) 
 module dist_mem_gen_0_rom
    (qspo,
     a,

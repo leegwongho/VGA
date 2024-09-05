@@ -1,3 +1,18 @@
+/*
+ * Sends BMP image to FPGA via UART. 
+ * BMP has to be 24-bit color depth.
+ *
+ * Command-line Fisrt argument: COM port name (ex: COM3)
+ * Command-line Second argument: bmp image location (ex: ./sample.bmp)
+ * Example usage: bmptx.exe COM4 "./test folder/sample.bmp"
+ * 
+ * Payload information:
+ *      4 bytes of UART TX per pixel:
+ *          pixel_x[7:0]
+ *          {pixel_y[5:0], pixel_x[9:8]}
+ *          {pixel_blue[3:0], pixel_y[9:6]}
+ *          {pixel_red[3:0], pixel_green[3:0]}
+ */
 #include <stdint.h>     // for using bit-defined types (ex: uint8_t)
 #include <stdio.h>      // for using printf
 #include <Windows.h>    // for using serial comm in Windows
@@ -19,17 +34,7 @@ void uart_print_error_msg ();
 int uart_init (char* COM_name);
 int check_bmp_format ();
 
-/*
- * Command-line Fisrt argument: COM port name (ex: COM3)
- * Command-line Second argument: bmp image location (ex: ./sample.bmp)
- * 
- * Payload information:
- *      4 bytes of UART TX per pixel:
- *          pixel_x[7:0]
- *          {pixel_y[5:0], pixel_x[9:8]}
- *          {pixel_blue[3:0], pixel_y[9:6]}
- *          {pixel_red[3:0], pixel_green[3:0]}
- */
+
 int main (int argc, char* argv[])
 {
     // initializations

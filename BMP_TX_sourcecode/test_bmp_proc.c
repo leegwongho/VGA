@@ -1,3 +1,9 @@
+/*
+ * Flip BMP file upside down
+ * Background: BMP file records pixel information from bottom to top, 
+ * while VGA draws pixels top to bottom. BMP needs to be flipped to be
+ * used with VGA.
+ */
 #include <stdint.h>
 #include <stdio.h>
 
@@ -71,29 +77,27 @@ int main()
     // Image Processing -------------------------------------------------------
     // ------------------------------------------------------------------------
 
-    #ifdef DEBUG
-        // FOR DEBUG: output reordered pixel info in 4-bit per color
-        FILE *output_bmp_ptr;                                    // declare file handler
-        output_bmp_ptr = fopen("reordered.bmp", "wb");    // open file and attach to the file handler
+    // FOR DEBUG: output reordered pixel info in 4-bit per color
+    FILE *output_bmp_ptr;                                    // declare file handler
+    output_bmp_ptr = fopen("reordered.bmp", "wb");    // open file and attach to the file handler
 
-        uint8_t byte_buffer;
-        fseek(input_bmp_ptr, 0, SEEK_SET);
-        for (int i=0; i<offset_payload; i++)
+    uint8_t byte_buffer;
+    fseek(input_bmp_ptr, 0, SEEK_SET);
+    for (int i=0; i<offset_payload; i++)
+    {
+        fread( (void *) &byte_buffer, 1, 1, input_bmp_ptr);
+        fwrite( (void *) &byte_buffer, 1, 1, output_bmp_ptr);
+    }
+
+    uint8_t RGB_buffer[3];
+    for (int y=0; y<RESOLUTION_HEIGHT; y++)
+    {
+        fseek(input_bmp_ptr, (offset_payload + (RESOLUTION_WIDTH * (RESOLUTION_HEIGHT - y - 1) * 3)), SEEK_SET);
+        for (int x=0; x<RESOLUTION_WIDTH; x++)
         {
-            fread( (void *) &byte_buffer, 1, 1, input_bmp_ptr);
-            fwrite( (void *) &byte_buffer, 1, 1, output_bmp_ptr);
+            fread( (void *) RGB_buffer, 1, 3, input_bmp_ptr);
+            fwrite( (void *) RGB_buffer, 1, 3, output_bmp_ptr);
         }
+    }
 
-        uint8_t RGB_buffer[3];
-        for (int y=0; y<RESOLUTION_HEIGHT; y++)
-        {
-            fseek(input_bmp_ptr, (offset_payload + (RESOLUTION_WIDTH * (RESOLUTION_HEIGHT - y - 1) * 3)), SEEK_SET);
-            for (int x=0; x<RESOLUTION_WIDTH; x++)
-            {
-                fread( (void *) RGB_buffer, 1, 3, input_bmp_ptr);
-                fwrite( (void *) RGB_buffer, 1, 3, output_bmp_ptr);
-            }
-    #else
-        
-    #endif // DEBUG
 }

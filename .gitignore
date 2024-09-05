@@ -24,4 +24,4 @@
 *.sdb
 *.pb
 *.ini
-*.exe
+Vivado_VGA_Controller/*.exe
