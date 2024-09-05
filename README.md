@@ -10,7 +10,7 @@
 ------------------
 ## 모듈 설명
 <p align="center">
-<img src="image/VGACont_overview.png" width="80%" alt="overview">
+<img src="readme_image/VGACont_overview.png" width="80%" alt="overview">
 </p>
 
 ### 모듈 설명
