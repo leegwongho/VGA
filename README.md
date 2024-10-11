@@ -19,3 +19,6 @@
 + 픽셀 좌표 변환기: VGA와 BRAM 사이의 해상도 변환
 + 커서 출력기: 저장 이미지 출력 전 커서 이미지 덧씌운뒤 VGA로 픽셀 정보 전달
 + 픽셀 패킷 수신기: PC로부터 픽셀 정보 수신
+
+
+https://www.youtube.com/watch?v=bc9L9glIZGM
